@@ -13,7 +13,7 @@ public class MainScreenController implements Initializable {
 
     }
 
-    public Next(ActionEvent event){
+    void Next(ActionEvent event){
 
     }
 }

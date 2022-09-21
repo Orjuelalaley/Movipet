@@ -3,6 +3,7 @@ package main.proyecto_movipet.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 public class ConexionSql {
     private Connection Connection;
@@ -20,6 +21,14 @@ public class ConexionSql {
         try {
             Class.forName(driver);
             Connection = DriverManager.getConnection(url,user,password);
+            PreparedStatement preparao = Connection.prepareStatement("insert  into info_mascotas values (?,?,?,?)");
+
+            preparao.setString(1,"4");
+            preparao.setString(2,"French Puddle");
+            preparao.setString(3,"9");
+            preparao.setString(4,"Lucas");
+            preparao.executeUpdate();
+
             if (Connection!= null){
                 System.out.println("Conexion realizada correctamente !!");
             }
