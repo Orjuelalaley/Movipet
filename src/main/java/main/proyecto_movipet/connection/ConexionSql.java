@@ -1,35 +1,30 @@
 package main.proyecto_movipet.connection;
 
-
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class ConexionSql {
-    private Connection Connection;
-    private String user = "movipetADMIN";
-    private String password = "123456";
-    private String servidor = "localhost";
-    private String puerto = "3306";
-    private String NombreBD = "db_mascotas";
-
-    private String url = "jdbc:mysql://"+servidor+":"+puerto+"/"+NombreBD+"?serverTimezone=UTC";
-
-    private  String driver = "com.mysql.cj.jdbc.Driver";
 
     public ConexionSql() {
         try {
+            String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
-            Connection = DriverManager.getConnection(url,user,password);
-            PreparedStatement preparao = Connection.prepareStatement("insert  into info_mascotas values (?,?,?,?)");
+            String user = "movipetADMIN";
+            String password = "123456";
+            String url = "jdbc:mysql://localhost:3306/db_mascotas?serverTimezone=UTC";
+            java.sql.Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparao = connection.prepareStatement("insert  into info_mascotas values (?,?,?,?,?,?,?)");
 
-            preparao.setString(1,"4");
-            preparao.setString(2,"French Puddle");
-            preparao.setString(3,"9");
-            preparao.setString(4,"Lucas");
-            preparao.executeUpdate();
+            /*preparao.setString(1,"1");
+            preparao.setString(2,"Lucas");
+            preparao.setString(3,"Lucky");
+            preparao.setString(4,"1");
+            preparao.setString(5,"French Puddle");
+            preparao.setString(6,"9");
+            preparao.setString(7,"es una ratica que se baña con amor");
+            preparao.executeUpdate();*/
 
-            if (Connection!= null){
+            if (connection != null){
                 System.out.println("Conexion realizada correctamente !!");
             }
 

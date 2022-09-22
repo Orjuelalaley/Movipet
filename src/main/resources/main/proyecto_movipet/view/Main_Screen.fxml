@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<View fx:id="Screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.MainScreenController">
+   <Label alignment="CENTER_RIGHT" text="BIENVENID@" textAlignment="CENTER" BorderPane.alignment="CENTER">
+      <font>
+         <Font name="Copperplate Gothic Bold" size="45.0" />
+      </font>
+   </Label>
+   <top>
+      <ImageView fitHeight="267.0" fitWidth="333.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <Image url="@movipet_imagen.jpg" />
+      </ImageView>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="221.0" fitWidth="371.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@parte_inferior.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="Ingresar" layoutX="207.0" layoutY="49.0" onAction="#Login" prefHeight="61.0" prefWidth="94.0" text="Log in" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</View>

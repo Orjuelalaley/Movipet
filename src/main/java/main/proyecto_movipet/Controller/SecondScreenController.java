@@ -1,4 +1,15 @@
 package main.proyecto_movipet.Controller;
 
-public class SecondScreenController {
+import javafx.fxml.Initializable;
+import main.proyecto_movipet.connection.ConexionSql;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SecondScreenController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
