@@ -1,31 +1,49 @@
 package main.proyecto_movipet.Controller;
 
-import com.gluonhq.charm.glisten.mvc.View;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class MainScreenController implements Initializable {
+public class InicioController  {
 
     @FXML
     private JFXButton Ingresar;
+    @FXML
+    private JFXButton Registrar;
+    @FXML
+    private JFXButton Exit;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void Register(){
+        try {
+
+            // Cargo la vista
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/reg_personas.fxml"));
+            // Cargo el padre
+            Parent root = loader.load();
+            // Creo la scene y el stage
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            // Asocio el stage con el scene
+            stage.setScene(scene);
+            stage.show();
+            // Indico que debe hacer al cerrar
+            Stage myStage = (Stage) this.Registrar.getScene().getWindow();
+            myStage.close();
+
+        }catch (Exception ex){
+            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -33,6 +51,7 @@ public class MainScreenController implements Initializable {
     void Login(ActionEvent event){
 
         try {
+
             // Cargo la vista
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Log_in.fxml"));
             // Cargo el padre
@@ -51,9 +70,13 @@ public class MainScreenController implements Initializable {
             myStage.close();
 
         }catch (Exception ex){
-            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public void Exit_Code() {
+        Stage myStage = (Stage) this.Exit.getScene().getWindow();
+        myStage.close();
+    }
 
 }

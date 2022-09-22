@@ -43,89 +43,71 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_mascotasController">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="112.0" fitWidth="112.0" layoutX="3.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-            <ImageView fitHeight="181.0" fitWidth="44.0" layoutX="21.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-            <ImageView fitHeight="229.0" fitWidth="91.0" layoutX="284.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-            <ImageView fitHeight="403.0" fitWidth="232.0" layoutX="60.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-            <TextArea prefHeight="63.0" prefWidth="339.0" />
-            <Label layoutX="34.0" layoutY="14.0" text="REGISTRO MASCOTA" textAlignment="CENTER" textFill="#0e38b3" textOverrun="CLIP">
-               <font>
-                  <Font name="Berlin Sans FB Demi Bold" size="29.0" />
-               </font>
-            </Label>
-            <Label layoutX="99.0" layoutY="89.0" text="Nombre completo:">
-               <font>
-                  <Font name="Baskerville Old Face" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="146.0" layoutY="287.0" text="Raza:">
-               <font>
-                  <Font name="Bell MT" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="145.0" layoutY="355.0" text="Edad:">
-               <font>
-                  <Font name="Baskerville Old Face" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="137.0" layoutY="152.0" text="Apodo:">
-               <font>
-                  <Font name="Bell MT" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="140.0" layoutY="219.0" text="Tipo:">
-               <font>
-                  <Font name="Baskerville Old Face" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="118.0" layoutY="423.0" text="Comentarios:">
-               <font>
-                  <Font name="Bell MT" size="19.0" />
-               </font>
-            </Label>
-            <TextField layoutX="83.0" layoutY="115.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="82.0" layoutY="181.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="84.0" layoutY="318.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="86.0" layoutY="386.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField layoutX="86.0" layoutY="453.0" prefHeight="25.0" prefWidth="174.0" />
-            <Button layoutX="205.0" layoutY="519.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="111.0" text="Siguiente">
-               <font>
-                  <Font size="39.0" />
-               </font>
-            </Button>
-            <CheckBox layoutX="86.0" layoutY="251.0" mnemonicParsing="false" text="Gato" />
-            <CheckBox layoutX="191.0" layoutY="251.0" mnemonicParsing="false" text="Perro" />
-            <ImageView fitHeight="92.0" fitWidth="56.0" layoutX="3.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-            <ImageView fitHeight="85.0" fitWidth="51.0" layoutX="287.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-                     </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </center>
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+      prefWidth="335.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="main.proyecto_movipet.Controller.Reg_mascotasController">
+   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="112.0" fitWidth="112.0" layoutX="3.0" layoutY="488.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <ImageView fitHeight="181.0" fitWidth="44.0" layoutX="21.0" layoutY="160.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <ImageView fitHeight="229.0" fitWidth="91.0" layoutX="284.0" layoutY="259.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <ImageView fitHeight="403.0" fitWidth="232.0" layoutX="60.0" layoutY="86.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <TextArea prefHeight="63.0" prefWidth="339.0"/>
+      <Label layoutX="34.0" layoutY="14.0" text="REGISTRO MASCOTA" textAlignment="CENTER" textFill="#0e38b3"
+             textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="29.0"/>
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="89.0" text="Nombre completo:">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0"/>
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="287.0" text="Raza:">
+         <font>
+            <Font name="Bell MT" size="19.0"/>
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="355.0" text="Edad:">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0"/>
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="152.0" text="Apodo:">
+         <font>
+            <Font name="Bell MT" size="19.0"/>
+         </font>
+      </Label>
+      <Label layoutX="140.0" layoutY="219.0" text="Tipo:">
+         <font>
+            <Font name="Baskerville Old Face" size="19.0"/>
+         </font>
+      </Label>
+      <Label layoutX="118.0" layoutY="423.0" text="Comentarios:">
+         <font>
+            <Font name="Bell MT" size="19.0"/>
+         </font>
+      </Label>
+      <TextField layoutX="83.0" layoutY="115.0" prefHeight="25.0" prefWidth="174.0"/>
+      <TextField layoutX="82.0" layoutY="181.0" prefHeight="25.0" prefWidth="174.0"/>
+      <TextField layoutX="84.0" layoutY="318.0" prefHeight="25.0" prefWidth="174.0"/>
+      <TextField layoutX="86.0" layoutY="386.0" prefHeight="25.0" prefWidth="174.0"/>
+      <TextField layoutX="86.0" layoutY="453.0" prefHeight="25.0" prefWidth="174.0"/>
+      <Button layoutX="205.0" layoutY="519.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="111.0"
+              text="Siguiente">
+         <font>
+            <Font size="39.0"/>
+         </font>
+      </Button>
+      <CheckBox layoutX="86.0" layoutY="251.0" mnemonicParsing="false" text="Gato"/>
+      <CheckBox layoutX="191.0" layoutY="251.0" mnemonicParsing="false" text="Perro"/>
+      <ImageView fitHeight="92.0" fitWidth="56.0" layoutX="3.0" layoutY="65.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+      <ImageView fitHeight="85.0" fitWidth="51.0" layoutX="287.0" layoutY="150.0" pickOnBounds="true"
+                 preserveRatio="true"/>
+   </AnchorPane>
 </View>

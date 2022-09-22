@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Reg_mascotasController implements Initializable {
+
+    private Log_inController carga;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connection conexion = conectar();
@@ -52,7 +54,7 @@ public class Reg_mascotasController implements Initializable {
             Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
-            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
 }

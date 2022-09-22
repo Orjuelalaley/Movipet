@@ -11,7 +11,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class App extends Application {
-    private final static String ICON_NAME = "view/JAJA.png";
+    private final static String ICON_NAME = "view/Images/JAJA.png";
     private final static String MAIN_FXML_NAME = "view/Main_Screen.fxml";
     private final static String WINDOW_NAME = "Pantalla De Inicio";
 

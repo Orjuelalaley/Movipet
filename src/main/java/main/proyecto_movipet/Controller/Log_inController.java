@@ -11,8 +11,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import main.proyecto_movipet.connection.ConnectionPersonasDB;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,12 +33,35 @@ public class Log_inController {
     public void LoginButtonAction(ActionEvent e){
         if (!UserName.getText().isBlank() && !Password.getText().isBlank()){
             Warning_text.setText("Intentaste iniciar sesión !!");
+            validarLogin();
         }else if(UserName.getText().isBlank()){
             Warning_text.setText("Ingresa el nombre de usuario !!");
         }else if(Password.getText().isBlank()){
             Warning_text.setText("Ingresa la contraseña !!");
         }
+    }
+    public void validarLogin(){
+        ConnectionPersonasDB conectar = new ConnectionPersonasDB();
+        Connection connectionDB = conectar.getConnection();
 
+        String verifyLogin = "SELECT count(1) FROM  `db_personas`.`info_personas` WHERE UserName = '"+ UserName.getText() +"'AND Password ='" + Password.getText()+ "'";
+        try {
+            Statement statement = connectionDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while (queryResult.next()){
+                if (queryResult.getInt(1)==1){
+                    Warning_text.setText("Inicio de sesión exitoso !!");
+                }else{
+                    Warning_text.setText("Inicio de sesión Invalido. Intentelo Nuevamente !!");
+                }
+            }
+        }catch (Exception e){
+            System.err.println("ocurrio un error \n " +
+                    "Mensaje del error : "+ e.getMessage());
+            System.err.println("Detalle del error: ");
+            e.printStackTrace();
+        }
     }
 
     public void BackScreen(ActionEvent e){
@@ -49,8 +76,7 @@ public class Log_inController {
             Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
-            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
