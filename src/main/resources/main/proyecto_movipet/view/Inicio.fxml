@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #f4ece0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="31.0" layoutY="220.0" text="BIENVENID@">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="142.0" fitWidth="174.0" layoutX="27.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Captura%20de%20pantalla%202022-09-19%20222004.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="407.0" prefWidth="332.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="84.0" layoutY="80.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #f4ece0;" text="Registrarse" textFill="#0d0d0d" />
+            <Button layoutX="84.0" layoutY="177.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #f4ece0;" text="Iniciar sesión" textFill="#0d0d0d" />
+            <Button layoutX="84.0" layoutY="276.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #f4ece0;" text="Salir" textFill="#0d0d0d" />
+            <ImageView fitHeight="177.0" fitWidth="48.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Captura%20de%20pantalla%202022-09-20%20072259.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="167.0" fitWidth="46.0" layoutX="252.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Captura%20de%20pantalla%202022-09-20%20072436.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

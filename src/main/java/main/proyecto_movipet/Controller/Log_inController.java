@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,6 +23,19 @@ public class Log_inController {
     private PasswordField Password;
     @FXML
     private TextField UserName;
+    @FXML
+    private Label Warning_text;
+
+    public void LoginButtonAction(ActionEvent e){
+        if (!UserName.getText().isBlank() && !Password.getText().isBlank()){
+            Warning_text.setText("Intentaste iniciar sesión !!");
+        }else if(UserName.getText().isBlank()){
+            Warning_text.setText("Ingresa el nombre de usuario !!");
+        }else if(Password.getText().isBlank()){
+            Warning_text.setText("Ingresa la contraseña !!");
+        }
+
+    }
 
     public void BackScreen(ActionEvent e){
         try {
