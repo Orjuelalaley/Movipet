@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDialog;
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.time.Duration;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -69,7 +71,7 @@ public class Reg_personasController {
     private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     private String Gender = null;
 
-    public void Register_persona() {
+    public void Register_persona() throws InterruptedException {
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
          Gender = "Masculino";
         }else if (!Male.isSelected() && Female.isSelected() && !Other.isSelected()) {
@@ -82,11 +84,7 @@ public class Reg_personasController {
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Gender != null && !Age.getText().isBlank()
                 && !Phone.getText().isBlank()) {
             if (Password.getText().equals(ConfirmPassword.getText()) && !Password.getText().isBlank()) {
-                Confirm.setTextFill(Color.color(0, 1, 0));
-                Confirm.setText("Las contraseñas coinciden !!");
-                System.out.println(Gender);
-                //Register_user();
-                Reg_pets();
+                Register_user();
             } else {
                 Confirm.setTextFill(Color.color(1, 0, 0));
                 Confirm.setText("Las contraseñas no coinciden, intentelo nuevamente !!");
@@ -158,7 +156,11 @@ public class Reg_personasController {
         ConnectionPersonasDB connect = new ConnectionPersonasDB();
         Connection connectionDB = connect.getConnection();
         try {
-            PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
+            if (connectionDB != null){
+                System.out.println("Conexion realizada correctamente !!");
+                Reg_pets();
+            }
+            /*PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
             ready.setString(1, Name.getText().trim());
             ready.setString(2, Email.getText().trim());
             ready.setString(3, ID.getText().trim());
@@ -168,7 +170,7 @@ public class Reg_personasController {
             ready.setString(7, User.getText().trim());
             ready.setString(8, Password.getText().trim());
             ready.executeUpdate();
-            Warning_text.setText("Registro Completado !!");
+            Warning_text.setText("Registro Completado !!");*/
 
         } catch (Exception e) {
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
@@ -189,7 +191,6 @@ public class Reg_personasController {
             stage.show();
             Stage myStage = (Stage) this.Next.getScene().getWindow();
             myStage.close();
-
         }catch (Exception e){
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
             System.err.println("Detalle del error: ");

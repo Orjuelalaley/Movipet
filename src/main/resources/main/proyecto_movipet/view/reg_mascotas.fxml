@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_mascotasController">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #f4ece0;" BorderPane.alignment="CENTER">
          <children>
@@ -20,6 +20,11 @@
                </image>
             </ImageView>
             <Label layoutX="27.0" layoutY="211.0" text="Registro de mascota">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="Warning_text" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="277.0" prefHeight="83.0" prefWidth="199.0" textAlignment="CENTER" textFill="RED" wrapText="true">
                <font>
                   <Font name="Copperplate Gothic Bold" size="15.0" />
                </font>
@@ -38,22 +43,22 @@
             <Label layoutX="14.0" layoutY="240.0" text="Comentarios" />
             <TextField fx:id="Pet_name" layoutX="85.0" layoutY="34.0" />
             <TextField fx:id="Short_name" layoutX="100.0" layoutY="69.0" />
+            <JFXCheckBox fx:id="Cat" layoutX="90.0" layoutY="111.0" text="Gato" />
+            <JFXCheckBox fx:id="Dog" layoutX="174.0" layoutY="111.0" text="Perro" />
             <TextField fx:id="Pet_Class" layoutX="77.0" layoutY="146.0" />
             <TextField fx:id="Pet_Age" layoutX="77.0" layoutY="189.0" />
             <TextField fx:id="Comments" layoutX="111.0" layoutY="232.0" />
-            <JFXButton layoutX="161.0" layoutY="293.0" prefHeight="52.0" prefWidth="107.0" style="-fx-background-color: #f4ece0;" text="Registrarse" textFill="#242323" />
+            <JFXButton fx:id="Reg_pets" layoutX="161.0" layoutY="293.0" onAction="#Register_mascota" prefHeight="52.0" prefWidth="107.0" style="-fx-background-color: #f4ece0;" text="Registrarse" textFill="#242323" />
             <ImageView fitHeight="98.0" fitWidth="75.0" layoutX="8.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Perrito.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="131.0" fitWidth="26.0" layoutX="266.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="142.0" fitWidth="33.0" layoutX="259.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/patica_inferior.jpeg" />
                </image>
             </ImageView>
-            <JFXCheckBox fx:id="Cat" layoutX="90.0" layoutY="111.0" text="Gato" />
-            <JFXCheckBox fx:id="Dog" layoutX="174.0" layoutY="111.0" text="Perro" />
          </children>
       </AnchorPane>
    </right>
