@@ -160,7 +160,7 @@ public class Reg_personasController {
                 System.out.println("Conexion realizada correctamente !!");
                 Reg_pets();
             }
-            /*PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
+            PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
             ready.setString(1, Name.getText().trim());
             ready.setString(2, Email.getText().trim());
             ready.setString(3, ID.getText().trim());
@@ -170,7 +170,7 @@ public class Reg_personasController {
             ready.setString(7, User.getText().trim());
             ready.setString(8, Password.getText().trim());
             ready.executeUpdate();
-            Warning_text.setText("Registro Completado !!");*/
+            Warning_text.setText("Registro Completado !!");
 
         } catch (Exception e) {
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());

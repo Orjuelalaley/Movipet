@@ -55,6 +55,7 @@ public class Log_inController {
             while (queryResult.next()){
                 if (queryResult.getInt(1)==1){
                     Warning_text.setText("Inicio de sesión exitoso !!");
+                    Main_page();
                 }else{
                     Warning_text.setText("Inicio de sesión Invalido. Intentelo Nuevamente !!");
                 }
@@ -65,6 +66,9 @@ public class Log_inController {
             System.err.println("Detalle del error: ");
             e.printStackTrace();
         }
+    }
+    public void Main_page(){
+
     }
 
     public void BackScreen(){

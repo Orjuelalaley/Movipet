@@ -71,7 +71,6 @@ public class Reg_mascotasController {
             Warning_text.setText("No se pueden selecicionar los dos tipos de mascotas !!");
         } else if (!Cat.isSelected() && !Dog.isSelected()) {
             Warning_text.setText("Falta seleccionar un unico tipo de mascota");
-
         } else if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
             Warning_text.setText("Falta ingresar la raza de la mascota");
@@ -82,12 +81,12 @@ public class Reg_mascotasController {
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && Comments.getText().isBlank()) {
             Warning_text.setText("Falta ingresar los comentarios de la mascota");
         }
-
     }
 
     private void Register_pet() {
         ConnetionMascotasDB connect = new ConnetionMascotasDB();
         Connection connectionDB = connect.getConnection();
+
         try {
             PreparedStatement ready = connectionDB.prepareStatement("insert  into info_mascotas values (?,?,?,?,?,?,?)");
             ready.setString(1, Pet_name.getText().trim());
@@ -97,15 +96,12 @@ public class Reg_mascotasController {
             ready.setString(5, Pet_Age.getText().trim());
             ready.setString(6, Comments.getText().trim());
             ready.executeUpdate();
-            Warning_text.setText("Registro Completado !!");
+            Warning_text.setText("Registro De la mascota Completado !!");
 
         }catch (Exception e){
-
+            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
+            System.err.println("Detalle del error: ");
+            e.printStackTrace();
         }
-
-
-
-
-
     }
 }
