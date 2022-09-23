@@ -25,7 +25,7 @@
                   <Font name="Copperplate Gothic Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="Warning_text" alignment="CENTER" layoutX="24.0" layoutY="276.0" prefHeight="62.0" prefWidth="187.0" textAlignment="CENTER" textFill="RED" wrapText="true">
+            <Label fx:id="Warning_text" alignment="CENTER" layoutX="13.0" layoutY="268.0" prefHeight="119.0" prefWidth="210.0" textAlignment="CENTER" textFill="RED" wrapText="true">
                <font>
                   <Font name="Copperplate Gothic Bold" size="15.0" />
                </font>

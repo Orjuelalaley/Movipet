@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2017, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Log_inController">
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <TextField fx:id="UserName" layoutX="23.0" layoutY="170.0" prefHeight="26.0" prefWidth="278.0">
+            <font>
+               <Font size="10.0"/>
+            </font>
+         </TextField>
+         <Label alignment="CENTER" layoutX="87.0" layoutY="26.0" prefHeight="74.0" prefWidth="198.0"
+                text="Ingreso seguro" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="30.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="9.0" layoutY="140.0" prefHeight="34.0" prefWidth="177.0"
+                text="Nombre De Usuario" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="14.0"/>
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="9.0" layoutY="196.0" prefHeight="40.0" prefWidth="119.0" text="Contraseña"
+                textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="14.0"/>
+            </font>
+         </Label>
+         <PasswordField fx:id="Password" layoutX="23.0" layoutY="236.0" prefHeight="26.0" prefWidth="276.0"/>
+         <JFXButton fx:id="LoginButton" buttonType="RAISED" layoutX="46.0" layoutY="335.0" onAction="#LoginButtonAction"
+                    prefHeight="39.0" prefWidth="241.0" ripplerFill="BLACK" style="-fx-background-color: #f4ece0;"
+                    text="Iniciar Sesión" textAlignment="CENTER" textOverrun="CLIP"/>
+         <JFXButton fx:id="GetBackButton" buttonType="RAISED" layoutX="46.0" layoutY="393.0" onAction="#BackScreen"
+                    prefHeight="39.0" prefWidth="241.0" ripplerFill="BLACK" style="-fx-background-color: #f4ece0;"
+                    text="Cancelar" textAlignment="CENTER" textOverrun="CLIP"/>
+         <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="36.0" layoutY="31.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@Images/lock.png"/>
+         </ImageView>
+         <Label fx:id="Warning_text" alignment="CENTER" layoutX="14.0" layoutY="100.0" prefHeight="46.0"
+                prefWidth="312.0" textAlignment="CENTER" textFill="RED" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="14.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #f4ece0;"
+                  BorderPane.alignment="CENTER">
+         <ImageView fitHeight="407.0" fitWidth="228.0" layoutX="40.0" layoutY="29.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@Images/movipet_imagen.jpg"/>
+         </ImageView>
+         <Label alignment="CENTER" layoutX="64.0" layoutY="226.0" prefHeight="74.0" prefWidth="198.0"
+                text="Bienvenido a MoviPet !!" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="30.0"/>
+            </font>
+         </Label>
+      </AnchorPane>
+   </center>
+</BorderPane>

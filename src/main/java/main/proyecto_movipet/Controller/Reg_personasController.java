@@ -118,6 +118,24 @@ public class Reg_personasController {
             Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo");
             Gender = null;
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
+                && !Email.getText().isBlank() && !ID.getText().isBlank() && !Male.isSelected()
+                && Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
+                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
+            Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo");
+            Gender = null;
+        } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
+                && !Email.getText().isBlank() && !ID.getText().isBlank() && Male.isSelected()
+                && !Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
+                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
+            Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo !!");
+            Gender = null;
+        } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
+                && !Email.getText().isBlank() && !ID.getText().isBlank() && Male.isSelected()
+                && Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
+                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
+            Warning_text.setText("No se pueden seleccionar todos los generos al mismo tiempo !!");
+            Gender = null;
+        } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
                 && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
             Warning_text.setText("Falta ingresar el email !!");
