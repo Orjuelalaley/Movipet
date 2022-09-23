@@ -69,10 +69,6 @@ public class Reg_personasController {
     private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     private String Gender = null;
 
-    public void initCombos() throws IOException {
-
-    }
-
     public void Register_persona() {
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
          Gender = "Masculino";
@@ -90,6 +86,7 @@ public class Reg_personasController {
                 Confirm.setText("Las contraseñas coinciden !!");
                 System.out.println(Gender);
                 //Register_user();
+                Reg_pets();
             } else {
                 Confirm.setTextFill(Color.color(1, 0, 0));
                 Confirm.setText("Las contraseñas no coinciden, intentelo nuevamente !!");
@@ -178,8 +175,26 @@ public class Reg_personasController {
             System.err.println("Detalle del error: ");
             e.printStackTrace();
         }
+    }
+    public void Reg_pets(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/reg_mascotas.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Pantalla De Registro De Mascotas");
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
+            stage.setScene(scene);
+            stage.show();
+            Stage myStage = (Stage) this.Next.getScene().getWindow();
+            myStage.close();
 
-
+        }catch (Exception e){
+            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
+            System.err.println("Detalle del error: ");
+            e.printStackTrace();
+        }
     }
 
     public void BackScreen() {
@@ -188,7 +203,7 @@ public class Reg_personasController {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNIFIED);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setTitle("Pantalla De Inicio");
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
             stage.setScene(scene);

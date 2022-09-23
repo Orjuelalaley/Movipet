@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -72,9 +73,9 @@ public class Log_inController {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNIFIED);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setTitle("Pantalla De Inicio");
-            stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_NAME)));
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
             stage.setScene(scene);
             stage.show();
             Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();

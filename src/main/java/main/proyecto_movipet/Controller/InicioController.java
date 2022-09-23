@@ -39,7 +39,7 @@ public class InicioController  {
             Stage stage = new Stage();
             stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
             stage.setTitle("Pantalla De Registro");
-            stage.initStyle(StageStyle.UNIFIED);
+            stage.initStyle(StageStyle.DECORATED);
             // Asocio el stage con el scene
             stage.setScene(scene);
             stage.show();
@@ -67,9 +67,9 @@ public class InicioController  {
             // Creo la scene y el stage
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNIFIED);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setTitle("Pantalla De Inicio De Sesión");
-            stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_NAME)));
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
             // Asocio el stage con el scene
             stage.setScene(scene);
             stage.show();

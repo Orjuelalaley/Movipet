@@ -20,7 +20,7 @@ public class App extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(MAIN_FXML_NAME)));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Pantalla De Inicio");
         stage.setScene(scene);
         stage.show();
