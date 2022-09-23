@@ -14,6 +14,9 @@ public class ConnectionPersonasDB {
             Class.forName(driver);
             personas_db = DriverManager.getConnection(url, user, password);
         }catch (Exception e){
+            System.err.println("ocurrio un error \n " +
+                    "Mensaje del error : "+ e.getMessage());
+            System.err.println("Detalle del error: ");
             e.printStackTrace();
         }
         return personas_db;

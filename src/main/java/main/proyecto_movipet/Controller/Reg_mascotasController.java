@@ -42,19 +42,4 @@ public class Reg_mascotasController implements Initializable {
         }
         return null;
     }
-    /*public void closeWindows() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_Screen.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
-            Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();
-            myStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
 }

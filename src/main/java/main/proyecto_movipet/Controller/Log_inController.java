@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.proyecto_movipet.connection.ConnectionPersonasDB;
@@ -29,8 +30,9 @@ public class Log_inController {
     private TextField UserName;
     @FXML
     private Label Warning_text;
+    private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
 
-    public void LoginButtonAction(ActionEvent e){
+    public void LoginButtonAction(){
         if (!UserName.getText().isBlank() && !Password.getText().isBlank()){
             Warning_text.setText("Intentaste iniciar sesión !!");
             validarLogin();
@@ -64,13 +66,15 @@ public class Log_inController {
         }
     }
 
-    public void BackScreen(ActionEvent e){
+    public void BackScreen(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_Screen.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.UNIFIED);
+            stage.setTitle("Pantalla De Inicio");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_NAME)));
             stage.setScene(scene);
             stage.show();
             Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();

@@ -7,8 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +25,7 @@ public class InicioController  {
     @FXML
     private JFXButton Exit;
 
+    private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     @FXML
     void Register(){
         try {
@@ -33,7 +37,9 @@ public class InicioController  {
             // Creo la scene y el stage
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
+            stage.setTitle("Pantalla De Registro");
+            stage.initStyle(StageStyle.UNIFIED);
             // Asocio el stage con el scene
             stage.setScene(scene);
             stage.show();
@@ -61,7 +67,9 @@ public class InicioController  {
             // Creo la scene y el stage
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.UNIFIED);
+            stage.setTitle("Pantalla De Inicio De Sesión");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_NAME)));
             // Asocio el stage con el scene
             stage.setScene(scene);
             stage.show();

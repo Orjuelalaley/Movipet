@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_personasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_personasController">
    <left>
-      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #f4ece0;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="416.0" prefWidth="245.0" style="-fx-background-color: #f4ece0;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="137.0" fitWidth="168.0" layoutX="30.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,31 +34,40 @@
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="407.0" prefWidth="332.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
-         <Label layoutX="27.0" layoutY="77.0" text="Usuario" />
-         <Label layoutX="14.0" layoutY="112.0" text="Contraseña" />
-         <Label layoutX="29.0" layoutY="188.0" text="Cedula" />
-         <Label layoutX="29.0" layoutY="223.0" text="Genero" />
-         <Label layoutX="29.0" layoutY="149.0" text="Email" />
-         <Label layoutX="31.0" layoutY="261.0" text="Edad" />
-         <Label layoutX="29.0" layoutY="298.0" text="Celular" />
-         <TextField fx:id="User" layoutX="85.0" layoutY="73.0" />
-         <TextField fx:id="Email" layoutX="69.0" layoutY="147.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField fx:id="ID" layoutX="77.0" layoutY="184.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField fx:id="Gender" layoutX="78.0" layoutY="219.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField fx:id="Age" layoutX="79.0" layoutY="257.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField fx:id="Phone" layoutX="79.0" layoutY="294.0" prefHeight="25.0" prefWidth="200.0" />
-         <JFXButton fx:id="Next" buttonType="RAISED" layoutX="187.0" layoutY="337.0" onAction="#Register_persona" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #f4ece0;" text="Siguiente" textFill="#242323" />
-         <ImageView fitHeight="73.0" fitWidth="63.0" layoutX="1.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane prefHeight="456.0" prefWidth="341.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <Label layoutX="25.0" layoutY="230.0" text="Usuario" />
+         <Label layoutX="14.0" layoutY="270.0" text="Contraseña" />
+         <Label layoutX="18.0" layoutY="97.0" text="Cedula" />
+         <Label layoutX="24.0" layoutY="134.0" text="Genero" />
+         <Label layoutX="22.0" layoutY="62.0" text="Email" />
+         <Label layoutX="30.0" layoutY="172.0" text="Edad" />
+         <Label layoutX="26.0" layoutY="204.0" text="Celular" />
+         <TextField fx:id="User" layoutX="78.0" layoutY="235.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="Email" layoutX="78.0" layoutY="58.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="ID" layoutX="76.0" layoutY="93.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="Age" layoutX="76.0" layoutY="168.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="Phone" layoutX="76.0" layoutY="200.0" prefHeight="25.0" prefWidth="200.0" />
+         <JFXButton fx:id="Next" buttonType="RAISED" layoutX="218.0" layoutY="377.0" onAction="#Register_persona" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #f4ece0;" text="Siguiente" textFill="#242323" />
+         <ImageView fitHeight="73.0" fitWidth="63.0" layoutX="2.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@Images/girl.jpeg" />
          </ImageView>
-         <ImageView fitHeight="71.0" fitWidth="48.0" layoutX="244.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="71.0" fitWidth="48.0" layoutX="303.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@Images/boi.jpeg" />
          </ImageView>
-         <Label layoutX="27.0" layoutY="41.0" text="Nombre" />
-         <TextField fx:id="Name" layoutX="77.0" layoutY="37.0" prefHeight="25.0" prefWidth="159.0" />
-         <JFXButton fx:id="CancelButton" buttonType="RAISED" layoutX="70.0" layoutY="337.0" onAction="#BackScreen" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #f4ece0;" text="Cancelar" textFill="#242323" />
-         <PasswordField fx:id="Password" layoutX="77.0" layoutY="108.0" prefHeight="25.0" prefWidth="200.0" />
+         <Label layoutX="14.0" layoutY="29.0" text="Nombre" />
+         <TextField fx:id="Name" layoutX="76.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" />
+         <JFXButton fx:id="CancelButton" buttonType="RAISED" layoutX="63.0" layoutY="377.0" onAction="#BackScreen" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #f4ece0;" text="Cancelar" textFill="#242323" />
+         <PasswordField fx:id="Password" layoutX="78.0" layoutY="266.0" prefHeight="25.0" prefWidth="200.0" />
+         <Label layoutX="16.0" layoutY="306.0" text="Confirmar Contraseña" />
+         <PasswordField fx:id="ConfirmPassword" layoutX="136.0" layoutY="299.0" prefHeight="25.0" prefWidth="200.0" />
+         <Label fx:id="Confirm" alignment="CENTER" layoutX="39.0" layoutY="331.0" prefHeight="39.0" prefWidth="296.0" textAlignment="CENTER" textFill="RED" underline="true" wrapText="true">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="12.0" />
+            </font>
+         </Label>
+         <JFXCheckBox fx:id="Male" layoutX="76.0" layoutY="134.0" text="Masculino" />
+         <JFXCheckBox fx:id="Female" layoutX="159.0" layoutY="134.0" text="Femenino" />
+         <JFXCheckBox fx:id="Other" layoutX="249.0" layoutY="134.0" text="Otro" />
       </AnchorPane>
    </right>
 </BorderPane>
