@@ -20,31 +20,25 @@
             </font>
          </Label>
          <ImageView fitHeight="95.0" fitWidth="124.0" layoutX="53.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@Images/Captura%20de%20pantalla%202022-09-22%20152631.png" />
+            <Image url="@Images/dog.png" />
          </ImageView>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="407.0" prefWidth="332.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton buttonType="RAISED" layoutX="26.0" layoutY="52.0" prefHeight="147.0" prefWidth="169.0" style="-fx-background-color: #f4ece0;" text="Atención a domicilio" textFill="#242323" />
-            <Label layoutX="14.0" layoutY="26.0" prefHeight="15.0" prefWidth="265.0" text="Tenemos todo lo que tu perro necesita" textFill="#1500ff">
-               <font>
-                  <Font name="Copperplate Gothic Bold" size="12.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="97.0" layoutY="225.0" prefHeight="147.0" prefWidth="169.0" style="-fx-background-color: #f4ece0;" text="Transporte a domicilio" textFill="#242323" />
-            <ImageView fitHeight="87.0" fitWidth="79.0" layoutX="200.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Captura%20de%20pantalla%202022-09-22%20152512.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="64.0" fitWidth="67.0" layoutX="26.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Captura%20de%20pantalla%202022-09-22%20152512.png" />
-               </image>
-            </ImageView>
-         </children>
+         <JFXButton buttonType="RAISED" layoutX="26.0" layoutY="52.0" prefHeight="147.0" prefWidth="169.0" style="-fx-background-color: #f4ece0;" text="Atención a domicilio" textFill="#242323" />
+         <Label layoutX="14.0" layoutY="26.0" prefHeight="15.0" prefWidth="265.0" text="Tenemos todo lo que tu perro necesita" textFill="#1500ff">
+            <font>
+               <Font name="Copperplate Gothic Bold" size="12.0" />
+            </font>
+         </Label>
+         <JFXButton buttonType="RAISED" layoutX="97.0" layoutY="225.0" prefHeight="147.0" prefWidth="169.0" style="-fx-background-color: #f4ece0;" text="Transporte a domicilio" textFill="#242323" />
+         <ImageView fitHeight="87.0" fitWidth="79.0" layoutX="200.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/paticas.png" />
+         </ImageView>
+         <ImageView fitHeight="64.0" fitWidth="67.0" layoutX="26.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/paticas.png" />
+         </ImageView>
       </AnchorPane>
    </right>
 </BorderPane>

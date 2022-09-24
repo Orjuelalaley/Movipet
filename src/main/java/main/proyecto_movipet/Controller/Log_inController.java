@@ -68,7 +68,24 @@ public class Log_inController {
         }
     }
     public void Main_page(){
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_page.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Pantalla Principal de la aplicación");
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
+            stage.setScene(scene);
+            stage.show();
+            Stage myStage = (Stage) this.LoginButton.getScene().getWindow();
+            myStage.close();
+        }catch (Exception e)
+        {
+            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
+            System.err.println("Detalle del error: ");
+            e.printStackTrace();
+        }
     }
 
     public void BackScreen(){

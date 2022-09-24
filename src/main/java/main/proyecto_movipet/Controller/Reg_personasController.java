@@ -71,7 +71,7 @@ public class Reg_personasController {
     private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     private String Gender = null;
 
-    public void Register_persona() throws InterruptedException {
+    public void Register_persona(){
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
          Gender = "Masculino";
         }else if (!Male.isSelected() && Female.isSelected() && !Other.isSelected()) {
@@ -156,10 +156,6 @@ public class Reg_personasController {
         ConnectionPersonasDB connect = new ConnectionPersonasDB();
         Connection connectionDB = connect.getConnection();
         try {
-            if (connectionDB != null){
-                System.out.println("Conexion realizada correctamente !!");
-                Reg_pets();
-            }
             PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
             ready.setString(1, Name.getText().trim());
             ready.setString(2, Email.getText().trim());
@@ -171,7 +167,7 @@ public class Reg_personasController {
             ready.setString(8, Password.getText().trim());
             ready.executeUpdate();
             Warning_text.setText("Registro Completado !!");
-
+            Reg_pets();
         } catch (Exception e) {
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
             System.err.println("Detalle del error: ");
