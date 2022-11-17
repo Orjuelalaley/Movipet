@@ -3,106 +3,64 @@ package main.proyecto_movipet.Controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import main.proyecto_movipet.connection.ConnectionPersonasDB;
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import main.proyecto_movipet.connection.ValidarConection;
+import main.proyecto_movipet.view.Cargador;
+import main.proyecto_movipet.view.Cerrar_app;
 
 public class Log_inController {
+
+    @FXML
+    public AnchorPane parent;
+    @FXML
     public JFXButton LoginButton;
-    public JFXButton GetBackButton;
+    public JFXButton RegisterButtonAction;
+
     @FXML
     private PasswordField Password;
     @FXML
     private TextField UserName;
-    @FXML
-    private Label Warning_text;
-    private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
 
     public void LoginButtonAction(){
-        if (!UserName.getText().isBlank() && !Password.getText().isBlank()){
-            Warning_text.setText("Intentaste iniciar sesión !!");
-            validarLogin();
-        }else if(UserName.getText().isBlank()){
-            Warning_text.setText("Ingresa el nombre de usuario !!");
-        }else if(Password.getText().isBlank()){
-            Warning_text.setText("Ingresa la contraseña !!");
-        }
-    }
-    public void validarLogin(){
-        ConnectionPersonasDB conectar = new ConnectionPersonasDB();
-        Connection connectionDB = conectar.getConnection();
+        if (UserName.getText().isBlank() && Password.getText().isBlank()){
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Los campos de usuario y contraseña están vacíos");
+            alerta.showAndWait();
 
-        String verifyLogin = "SELECT count(1) FROM  `db_personas`.`info_personas` WHERE UserName = '"+ UserName.getText() +"'AND Password ='" + Password.getText()+ "'";
-        try {
-            Statement statement = connectionDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
+        }else if (UserName.getText().isBlank()){
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de usuario está vacío");
+            alerta.showAndWait();
+        }else if (Password.getText().isBlank()){
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de contraseña está vacío");
+            alerta.showAndWait();
+        }else if(!UserName.getText().isBlank() && !Password.getText().isBlank()){
 
-            while (queryResult.next()){
-                if (queryResult.getInt(1)==1){
-                    Warning_text.setText("Inicio de sesión exitoso !!");
-                    Main_page();
-                }else{
-                    Warning_text.setText("Inicio de sesión Invalido. Intentelo Nuevamente !!");
-                }
+            if (ValidarConection.validarLogin(UserName.getText(),Password.getText())){
+                Cargador cargador = new Cargador();
+                cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
+                this.parent.getScene().getWindow().hide();
             }
-        }catch (Exception e){
-            System.err.println("ocurrio un error \n " +
-                    "Mensaje del error : "+ e.getMessage());
-            System.err.println("Detalle del error: ");
-            e.printStackTrace();
-        }
-    }
-    public void Main_page(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_page.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Pantalla Principal de la aplicación");
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-            stage.setScene(scene);
-            stage.show();
-            Stage myStage = (Stage) this.LoginButton.getScene().getWindow();
-            myStage.close();
-        }catch (Exception e)
-        {
-            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
-            System.err.println("Detalle del error: ");
-            e.printStackTrace();
         }
     }
 
-    public void BackScreen(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_Screen.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Pantalla De Inicio");
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-            stage.setScene(scene);
-            stage.show();
-            Stage myStage = (Stage) this.GetBackButton.getScene().getWindow();
-            myStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+
+    public void close_app(MouseEvent event) {
+        Cerrar_app.close();
+    }
+
+    public void RegisterButtonAction(ActionEvent event) {
+        Cargador cargador = new Cargador();
+        cargador.load("/main/proyecto_movipet/view/Reg_user.fxml","Registro de usuario");
+        this.parent.getScene().getWindow().hide();
     }
 }

@@ -1,0 +1,22 @@
+.parent{
+    -fx-background-image: url(../Images/parte_inferior.jpg);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1024 600;
+}
+.vbox{
+    -fx-background-color: #ffffff;
+}
+.textfields{
+    -fx-background-color: #ffffff;
+    -fx-cursor-color: white;
+}
+.button{
+    -fx-background-color: #ffffff;
+    -fx-cursor-color: white;
+}
+.secondary-button{
+    -fx-background-color: #ffffff;
+    -fx-cursor-color: white;
+}
+

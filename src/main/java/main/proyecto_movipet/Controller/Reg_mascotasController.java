@@ -11,7 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.proyecto_movipet.connection.ConnetionMascotasDB;
+import main.proyecto_movipet.connection.ConnetionDB;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Objects;
@@ -58,7 +59,7 @@ public class Reg_mascotasController {
         }
         if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank() && !Pet_Class.getText().isBlank()
                 && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank() && Type != null) {
-            Register_pet();
+            //Register_pet();
         } else if (Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
             Warning_text.setText("Falta ingresar el nombre de la mascota !!");
@@ -81,8 +82,8 @@ public class Reg_mascotasController {
         }
     }
 
-    private void Register_pet() {
-        ConnetionMascotasDB connect = new ConnetionMascotasDB();
+    /*private void Register_pet() {
+        ConnetionDB connect = new ConnetionDB();
         Connection connectionDB = connect.getConnection();
 
         try {
@@ -104,7 +105,7 @@ public class Reg_mascotasController {
             System.err.println("Detalle del error: ");
             e.printStackTrace();
         }
-    }
+    }*/
     public void Next_Screen(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_page.fxml"));

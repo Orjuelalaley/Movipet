@@ -1,20 +1,15 @@
 package main.proyecto_movipet.Controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.proyecto_movipet.connection.ConnetionMascotasDB;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.util.Objects;
 
 public class MapaController {

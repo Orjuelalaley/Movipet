@@ -1,14 +1,9 @@
 package main.proyecto_movipet.Controller;
 
-import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXDialog;
-import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,23 +11,26 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.proyecto_movipet.connection.ConnectionPersonasDB;
+import main.proyecto_movipet.connection.ConnetionDB;
+import main.proyecto_movipet.view.Cargador;
+import main.proyecto_movipet.view.Cerrar_app;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.time.Duration;
 import java.util.Objects;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Reg_personasController {
 
+    @FXML
+    private AnchorPane parent;
     @FXML
     public JFXButton Next;
     @FXML
@@ -153,20 +151,24 @@ public class Reg_personasController {
 
 
     public void Register_user() {
-        ConnectionPersonasDB connect = new ConnectionPersonasDB();
+        ConnetionDB connect = new ConnetionDB();
         Connection connectionDB = connect.getConnection();
         try {
-            PreparedStatement ready = connectionDB.prepareStatement("insert  into info_personas values (?,?,?,?,?,?,?,?)");
-            ready.setString(1, Name.getText().trim());
-            ready.setString(2, Email.getText().trim());
-            ready.setString(3, ID.getText().trim());
+            PreparedStatement ready = connectionDB.prepareStatement("insert  into movipet_db.clientes values (?,?,?,?,?,?,?,?)");
+            ready.setString(1, ID.getText().trim());
+            ready.setString(2, Name.getText().trim());
+            ready.setString(3, Email.getText().trim());
             ready.setString(4, Gender.trim());
             ready.setString(5, Age.getText().trim());
             ready.setString(6, Phone.getText().trim());
             ready.setString(7, User.getText().trim());
             ready.setString(8, Password.getText().trim());
             ready.executeUpdate();
-            Warning_text.setText("Registro Completado !!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro exitoso");
+            alert.setHeaderText(null);
+            alert.setContentText("Usuario registrado exitosamente");
+            alert.showAndWait();
             Reg_pets();
         } catch (Exception e) {
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
@@ -176,15 +178,8 @@ public class Reg_personasController {
     }
     public void Reg_pets(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/reg_mascotas.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Pantalla De Registro De Mascotas");
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-            stage.setScene(scene);
-            stage.show();
+            Cargador cargador = new Cargador();
+            cargador.load("/main/proyecto_movipet/view/reg_mascotas.fxml","Registro de usuario");
             Stage myStage = (Stage) this.Next.getScene().getWindow();
             myStage.close();
         }catch (Exception e){
@@ -212,5 +207,7 @@ public class Reg_personasController {
         }
     }
 
-
+    public void close_app(MouseEvent event) {
+        Cerrar_app.close();
+    }
 }
