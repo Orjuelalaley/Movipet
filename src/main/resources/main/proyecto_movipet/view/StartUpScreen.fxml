@@ -64,10 +64,7 @@
          </font></JFXButton>
       <FontAwesomeIconView glyphName="CLOSE" layoutX="983.0" layoutY="37.0" onMouseClicked="#close_app" size="2EM" text="" />
       <Label layoutX="483.0" layoutY="419.0" prefHeight="17.0" prefWidth="128.0" text="No tienes una cuenta ?" underline="true" />
-      <JFXButton fx:id="RegisterButtonAction" buttonType="RAISED" defaultButton="true" layoutX="611.0" layoutY="415.0" onAction="#RegisterButtonAction" prefHeight="25.0" prefWidth="82.0" stylesheets="@Style/loginstyle.css" text="Registrate">
-         <font>
-            <Font name="Verdana" size="12.0" />
-         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="623.0" layoutY="415.0" onAction="#RegisterButtonAction" prefHeight="35.0" prefWidth="86.0" text="Registrarse" />
    </children>
    <opaqueInsets>
       <Insets />

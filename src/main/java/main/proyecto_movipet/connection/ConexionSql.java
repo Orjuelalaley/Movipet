@@ -13,7 +13,7 @@ public class ConexionSql {
             String password = "123456";
             String url = "jdbc:mysql://localhost:3306/db_mascotas?serverTimezone=UTC";
             java.sql.Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparao = connection.prepareStatement("insert  into info_mascotas values (?,?,?,?,?,?,?)");
+            //PreparedStatement preparao = connection.prepareStatement("insert  into  values (?,?,?,?,?,?,?)");
 
             /*preparao.setString(1,"1");
             preparao.setString(2,"Lucas");

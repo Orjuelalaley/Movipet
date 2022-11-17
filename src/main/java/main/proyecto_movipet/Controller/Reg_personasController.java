@@ -2,6 +2,7 @@ package main.proyecto_movipet.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,10 +36,6 @@ public class Reg_personasController {
     public JFXButton Next;
     @FXML
     private TextField Age;
-
-    @FXML
-    private JFXButton CancelButton;
-
     @FXML
     private TextField Email;
 
@@ -56,12 +53,9 @@ public class Reg_personasController {
 
     @FXML
     private PasswordField Password;
-    @FXML
-    private PasswordField ConfirmPassword;
+
     @FXML
     private TextField Phone;
-    @FXML
-    private Label Warning_text;
     @FXML
     private TextField User;
     @FXML
@@ -70,6 +64,7 @@ public class Reg_personasController {
     private String Gender = null;
 
     public void Register_persona(){
+        Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
          Gender = "Masculino";
         }else if (!Male.isSelected() && Female.isSelected() && !Other.isSelected()) {
@@ -81,71 +76,127 @@ public class Reg_personasController {
         if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Gender != null && !Age.getText().isBlank()
                 && !Phone.getText().isBlank()) {
-            if (Password.getText().equals(ConfirmPassword.getText()) && !Password.getText().isBlank()) {
-                Register_user();
-            } else {
-                Confirm.setTextFill(Color.color(1, 0, 0));
-                Confirm.setText("Las contraseñas no coinciden, intentelo nuevamente !!");
-            }
+            Reg_pets();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el numero de telefono/celular !!");
+                && Phone.getText().isBlank() ) {
+                alerta.setTitle("Error");
+                alerta.setHeaderText("Error al registrar");
+                alerta.setContentText("Por favor ingrese un numero de telefono");
+                alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar la edad !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese una edad");
+            alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && ID.getText().isBlank() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar la cedula !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese un numero de identificacion");
+            alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Male.isSelected()
                 && !Female.isSelected() && !Other.isSelected() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta seleccionar el genero !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor seleccione un genero");
+            alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Male.isSelected()
                 && Female.isSelected() && !Other.isSelected() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor seleccione un solo genero");
+            alerta.showAndWait();
             Gender = null;
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Male.isSelected()
                 && Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor seleccione un solo genero");
+            alerta.showAndWait();
             Gender = null;
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Male.isSelected()
                 && !Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("No se pueden seleccionar dos Generos al mismo tiempo !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor seleccione un solo genero");
+            alerta.showAndWait();
             Gender = null;
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Male.isSelected()
                 && Female.isSelected() && Other.isSelected() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("No se pueden seleccionar todos los generos al mismo tiempo !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor seleccione un solo genero");
+            alerta.showAndWait();
             Gender = null;
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el email !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese un correo electronico");
+            alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar la contraseña !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese una contraseña");
+            alerta.showAndWait();
         } else if (!Name.getText().isBlank() && User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el nombre de usuario !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese un nombre de usuario");
+            alerta.showAndWait();
         } else if (Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && !Phone.getText().isBlank() && !ConfirmPassword.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el nombre !!");
+                && !Phone.getText().isBlank() ) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese un nombre");
+            alerta.showAndWait();
         } else {
-            Warning_text.setText("Falta por ingresar multiples datos !!");
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor llene todos los campos");
+            alerta.showAndWait();
+        }
+        try {
+            int numero = Integer.parseInt(Phone.getText());
+            if (numero > 0) {
+                if (numero > 999999999) {
+                    alerta.setTitle("Error");
+                    alerta.setHeaderText("El numero de telefono es muy largo");
+                    alerta.setContentText("El numero de telefono no puede tener mas de 9 digitos");
+                    alerta.showAndWait();
+                } else {
+                    alerta.setTitle("Error");
+                    alerta.setHeaderText("El numero de telefono es muy corto");
+                    alerta.setContentText("El numero de telefono no puede tener menos de 9 digitos");
+                    alerta.showAndWait();
+                }
+            }
+
+        }catch (Exception e){
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Error al registrar");
+            alerta.setContentText("Por favor ingrese un numero de telefono");
+            alerta.showAndWait();
         }
     }
 
@@ -179,8 +230,8 @@ public class Reg_personasController {
     public void Reg_pets(){
         try {
             Cargador cargador = new Cargador();
-            cargador.load("/main/proyecto_movipet/view/reg_mascotas.fxml","Registro de usuario");
-            Stage myStage = (Stage) this.Next.getScene().getWindow();
+            cargador.load("/main/proyecto_movipet/view/Reg_pets.fxml","Registro de mascotas");
+            Stage myStage = (Stage) this.parent.getScene().getWindow();
             myStage.close();
         }catch (Exception e){
             System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
@@ -191,18 +242,11 @@ public class Reg_personasController {
 
     public void BackScreen() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_Screen.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Pantalla De Inicio");
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-            stage.setScene(scene);
-            stage.show();
-            Stage myStage = (Stage) this.CancelButton.getScene().getWindow();
+            Cargador cargador = new Cargador();
+            cargador.load("/main/proyecto_movipet/view/StartUpScreen.fxml","Pantalla De Inicio");
+            Stage myStage = (Stage) this.parent.getScene().getWindow();
             myStage.close();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(InicioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -210,4 +254,5 @@ public class Reg_personasController {
     public void close_app(MouseEvent event) {
         Cerrar_app.close();
     }
+
 }

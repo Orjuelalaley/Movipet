@@ -25,7 +25,7 @@ public class Log_inController {
     @FXML
     private TextField UserName;
 
-    public void LoginButtonAction(){
+    public void LoginButtonAction(ActionEvent event) {
         if (UserName.getText().isBlank() && Password.getText().isBlank()){
             Alert alerta = new Alert(Alert.AlertType.WARNING);
             alerta.setTitle("Error");
@@ -45,9 +45,9 @@ public class Log_inController {
         }else if(!UserName.getText().isBlank() && !Password.getText().isBlank()){
 
             if (ValidarConection.validarLogin(UserName.getText(),Password.getText())){
-                Cargador cargador = new Cargador();
-                cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
-                this.parent.getScene().getWindow().hide();
+                //Cargador cargador = new Cargador();
+                //cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
+                //this.parent.getScene().getWindow().hide();
             }
         }
     }
@@ -58,7 +58,7 @@ public class Log_inController {
         Cerrar_app.close();
     }
 
-    public void RegisterButtonAction(ActionEvent event) {
+    public void RegisterButtonAction( ActionEvent event) {
         Cargador cargador = new Cargador();
         cargador.load("/main/proyecto_movipet/view/Reg_user.fxml","Registro de usuario");
         this.parent.getScene().getWindow().hide();

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="parent" stylesheets="@Style/loginstyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.SplashScreenController">
+    <Label layoutX="339.0" layoutY="141.0" prefHeight="58.0" prefWidth="243.0" text="BIENVENIDO ">
+       <font>
+          <Font name="Impact" size="40.0" />
+       </font>
+       <effect>
+          <DropShadow />
+       </effect>
+    </Label>
+    <Label layoutX="339.0" layoutY="257.0" prefHeight="58.0" prefWidth="222.0" text="MOVIPET !!">
+       <font>
+          <Font name="Impact" size="40.0" />
+       </font>
+       <effect>
+          <DropShadow />
+       </effect>
+    </Label>
+    <Label layoutX="339.0" layoutY="199.0" prefHeight="58.0" prefWidth="35.0" text="A">
+       <font>
+          <Font name="Impact" size="40.0" />
+       </font>
+       <effect>
+          <DropShadow />
+       </effect>
+    </Label>
+   <ImageView fitHeight="202.0" fitWidth="317.0" layoutX="540.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Images/movipet_imagen.jpg" />
+   </ImageView>
+   <FontAwesomeIconView glyphName="CLOSE" layoutX="982.0" layoutY="37.0" onMouseClicked="#close_app" size="2em" text="" wrappingWidth="17.0" />
+ </AnchorPane>

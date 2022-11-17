@@ -6,12 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.proyecto_movipet.connection.ConnetionDB;
+import main.proyecto_movipet.view.Cerrar_app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,8 +44,6 @@ public class Reg_mascotasController {
     private TextField Short_name;
 
     @FXML
-    private Label Warning_text;
-    @FXML
     private JFXButton Reg_pets;
 
     private String Type = null;
@@ -52,6 +53,7 @@ public class Reg_mascotasController {
 
     @FXML
     void Register_mascota() {
+        Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Cat.isSelected() && !Dog.isSelected()) {
             Type = "Gato";
         } else if (!Cat.isSelected() && Dog.isSelected()) {
@@ -62,23 +64,58 @@ public class Reg_mascotasController {
             //Register_pet();
         } else if (Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el nombre de la mascota !!");
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de nombre de la mascota está vacío");
+            alerta.showAndWait();
         } else if (!Pet_name.getText().isBlank() && Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar el apodo de la mascota");
-        } else if (Cat.isSelected() && Dog.isSelected()) {
-            Warning_text.setText("No se pueden selecicionar los dos tipos de mascotas !!");
-        } else if (!Cat.isSelected() && !Dog.isSelected()) {
-            Warning_text.setText("Falta seleccionar un unico tipo de mascota");
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de nombre corto de la mascota está vacío");
+            alerta.showAndWait();
         } else if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar la raza de la mascota");
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de raza de la mascota está vacío");
+            alerta.showAndWait();
+        } else if (Cat.isSelected() && Dog.isSelected()) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Solo puede seleccionar un tipo de mascota");
+            alerta.showAndWait();
+        } else if (!Cat.isSelected() && !Dog.isSelected()) {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Debe seleccionar un tipo de mascota");
+            alerta.showAndWait();
         } else if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar la edad de la mascota");
-        } else if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de edad de la mascota está vacío");
+            alerta.showAndWait();
+        }
+        else if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && Comments.getText().isBlank()) {
-            Warning_text.setText("Falta ingresar los comentarios de la mascota");
+            alerta.setTitle("Error");
+            alerta.setHeaderText("El campo de comentarios de la mascota está vacío");
+            alerta.showAndWait();
+        } else {
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Debe llenar todos los campos");
+            alerta.showAndWait();
+        }
+        try {
+            int edad = Integer.parseInt(Pet_Age.getText());
+            if (edad < 0) {
+                alerta.setTitle("Error");
+                alerta.setHeaderText("La edad de la mascota no puede ser negativa");
+                alerta.showAndWait();
+            } else if (edad > 100) {
+                alerta.setTitle("Error");
+                alerta.setHeaderText("La edad de la mascota no puede ser mayor a 100 años");
+                alerta.showAndWait();
+            }
+        }catch (Exception e){
+            alerta.setTitle("Error");
+            alerta.setHeaderText("La edad de la mascota debe ser un número");
+            alerta.showAndWait();
         }
     }
 
@@ -125,5 +162,10 @@ public class Reg_mascotasController {
                 System.err.println("Detalle del error: ");
                 e.printStackTrace();
             }
+    }
+
+
+    public void close_app(MouseEvent event) {
+        Cerrar_app.close();
     }
 }

@@ -7,7 +7,7 @@ import main.proyecto_movipet.view.Cargador;
 import java.io.IOException;
 
 public class App extends Application {
-    private final static String MAIN_FXML_NAME = "StartUpScreen.fxml";
+    private final static String MAIN_FXML_NAME = "SplashScreen.fxml";
     Cargador cargador = new Cargador();
     @Override
     public void start(Stage stage){

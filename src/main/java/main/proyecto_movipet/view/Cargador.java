@@ -1,5 +1,4 @@
 package main.proyecto_movipet.view;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,7 +26,5 @@ public class Cargador {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 }

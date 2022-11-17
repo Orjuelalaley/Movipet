@@ -12,5 +12,4 @@ public class Cerrar_app {
         alerta.showAndWait();
         System.exit(1);
     }
-
 }
