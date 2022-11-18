@@ -71,6 +71,7 @@ public class Reg_personasController {
             Gender = "Femenino";
         } else if (!Male.isSelected() && !Female.isSelected() && Other.isSelected()) {
             Gender = "Otro";
+
         }
 
         if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
