@@ -22,6 +22,7 @@ import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Objects;
@@ -178,19 +179,12 @@ public class Reg_personasController {
             alerta.showAndWait();
         }
         try {
-            int numero = Integer.parseInt(Phone.getText());
+            int numero = BigInteger.valueOf(Long.parseLong(ID.getText())).intValueExact();
             if (numero > 0) {
-                if (numero > 999999999) {
-                    alerta.setTitle("Error");
-                    alerta.setHeaderText("El numero de telefono es muy largo");
-                    alerta.setContentText("El numero de telefono no puede tener mas de 9 digitos");
-                    alerta.showAndWait();
-                } else {
-                    alerta.setTitle("Error");
-                    alerta.setHeaderText("El numero de telefono es muy corto");
-                    alerta.setContentText("El numero de telefono no puede tener menos de 9 digitos");
-                    alerta.showAndWait();
-                }
+                alerta.setTitle("Error");
+                alerta.setHeaderText("El numero de telefono es muy corto");
+                alerta.setContentText("El numero de telefono no puede tener menos de 10 digitos");
+                alerta.showAndWait();
             }
 
         }catch (Exception e){
