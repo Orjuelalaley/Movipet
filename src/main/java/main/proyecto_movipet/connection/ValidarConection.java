@@ -15,15 +15,14 @@ public class ValidarConection {
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
-
             if (queryResult.next()){
                 if (queryResult.getInt(1)==1){
-                    Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                     alerta.setHeaderText(null);
                     alerta.setTitle("INFO");
                     alerta.setContentText("BIENVENIDO A MOVIPET");
                     alerta.showAndWait();
-                    return  true;
+                    return  false;
                 }else{
                     Alert alerta = new Alert(Alert.AlertType.ERROR);
                     alerta.setHeaderText(null);

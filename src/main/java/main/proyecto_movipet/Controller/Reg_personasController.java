@@ -183,7 +183,7 @@ public class Reg_personasController {
             if (numero > 0) {
                 alerta.setTitle("Error");
                 alerta.setHeaderText("El numero de telefono es muy corto");
-                alerta.setContentText("El numero de telefono no puede tener menos de 10 digitos");
+                alerta.setContentText("El numero de telefono no puede tener menos de 10  digitos");
                 alerta.showAndWait();
             }
 

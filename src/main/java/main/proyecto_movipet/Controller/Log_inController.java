@@ -8,7 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import main.proyecto_movipet.connection.ValidarConection;
+import main.proyecto_movipet.interfaces.DAOUsuarioImplementacion;
+import main.proyecto_movipet.model.Entidades.Usuario;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
 
@@ -17,21 +18,18 @@ public class Log_inController {
     @FXML
     public AnchorPane parent;
     @FXML
-    public JFXButton LoginButton;
-    public JFXButton RegisterButtonAction;
-
-    @FXML
     private PasswordField Password;
     @FXML
     private TextField UserName;
 
     public void LoginButtonAction(ActionEvent event) {
+        DAOUsuarioImplementacion usuario_dao = new DAOUsuarioImplementacion();
+        Usuario usuario = new Usuario();
         if (UserName.getText().isBlank() && Password.getText().isBlank()){
             Alert alerta = new Alert(Alert.AlertType.WARNING);
             alerta.setTitle("Error");
             alerta.setHeaderText("Los campos de usuario y contraseña están vacíos");
             alerta.showAndWait();
-
         }else if (UserName.getText().isBlank()){
             Alert alerta = new Alert(Alert.AlertType.WARNING);
             alerta.setTitle("Error");
@@ -43,17 +41,13 @@ public class Log_inController {
             alerta.setHeaderText("El campo de contraseña está vacío");
             alerta.showAndWait();
         }else if(!UserName.getText().isBlank() && !Password.getText().isBlank()){
-
-            if (ValidarConection.validarLogin(UserName.getText(),Password.getText())){
-                //Cargador cargador = new Cargador();
-                //cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
-                //this.parent.getScene().getWindow().hide();
+            if (usuario_dao.iniciarSesion(UserName.getText(),Password.getText())){
+                Cargador cargador = new Cargador();
+                cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
+                this.parent.getScene().getWindow().hide();
             }
         }
     }
-
-
-
     public void close_app(MouseEvent event) {
         Cerrar_app.close();
     }
