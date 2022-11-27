@@ -24,7 +24,6 @@ public class Log_inController {
 
     public void LoginButtonAction(ActionEvent event) {
         DAOUsuarioImplementacion usuario_dao = new DAOUsuarioImplementacion();
-        Usuario usuario = new Usuario();
         if (UserName.getText().isBlank() && Password.getText().isBlank()){
             Alert alerta = new Alert(Alert.AlertType.WARNING);
             alerta.setTitle("Error");

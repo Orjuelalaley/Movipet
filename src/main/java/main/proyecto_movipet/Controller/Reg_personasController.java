@@ -48,7 +48,6 @@ public class Reg_personasController {
     private JFXCheckBox Other;
     @FXML
     private TextField ID;
-
     @FXML
     private TextField Name;
 
@@ -72,16 +71,37 @@ public class Reg_personasController {
             Gender = "Femenino";
         } else if (!Male.isSelected() && !Female.isSelected() && Other.isSelected()) {
             Gender = "Otro";
-
         }
 
         if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Gender != null && !Age.getText().isBlank()
                 && !Phone.getText().isBlank()) {
-            Reg_pets();
+            System.out.println("Todo bien");
+            try {
+                int id = Integer.parseInt(ID.getText());
+                int numero = Integer.parseInt(Phone.getText());
+                int edad = Integer.parseInt(Age.getText());
+
+                int digitos = 0;
+                if (Integer.toString(numero).length() > 0) {
+                    digitos = (int) (Math.log10(numero) + 1);
+                }
+                if (digitos < 10){
+                    alerta.setTitle("Error");
+                    alerta.setHeaderText("El número de teléfono debe tener 10 dígitos");
+                }
+                System.out.println(digitos);
+                digitos = 0;
+                //Reg_pets();
+            }catch (Exception e){
+                alerta.setTitle("Error");
+                alerta.setHeaderText("El número de teléfono debe ser un número");
+                alerta.showAndWait();
+            }
+
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && Phone.getText().isBlank() ) {
+                && Phone.getText().isBlank()) {
                 alerta.setTitle("Error");
                 alerta.setHeaderText("Error al registrar");
                 alerta.setContentText("Por favor ingrese un numero de telefono");
@@ -98,7 +118,7 @@ public class Reg_personasController {
                 && !Phone.getText().isBlank() ) {
             alerta.setTitle("Error");
             alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un numero de identificacion");
+            alerta.setContentText("Por favor ingrese un numero de identificación");
             alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Male.isSelected()
@@ -149,7 +169,7 @@ public class Reg_personasController {
                 && !Phone.getText().isBlank() ) {
             alerta.setTitle("Error");
             alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un correo electronico");
+            alerta.setContentText("Por favor ingrese un correo electonico");
             alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
@@ -178,23 +198,7 @@ public class Reg_personasController {
             alerta.setContentText("Por favor llene todos los campos");
             alerta.showAndWait();
         }
-        try {
-            int numero = BigInteger.valueOf(Long.parseLong(ID.getText())).intValueExact();
-            if (numero > 0) {
-                alerta.setTitle("Error");
-                alerta.setHeaderText("El numero de telefono es muy corto");
-                alerta.setContentText("El numero de telefono no puede tener menos de 10  digitos");
-                alerta.showAndWait();
-            }
-
-        }catch (Exception e){
-            alerta.setTitle("Error");
-            alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un numero de telefono");
-            alerta.showAndWait();
-        }
     }
-
 
     public void Register_user() {
         ConnetionDB connect = new ConnetionDB();
