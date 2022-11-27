@@ -12,17 +12,11 @@ import java.sql.ResultSet;
 
 
 public class DAOUsuarioImplementacion implements DAOUsuario {
-    Conexion conexion = Conexion.getInstance();
-
     @Override
     public boolean iniciarSesion(String user, String password) {
         Validar validarConection = new Validar();
         Usuario usuario = validarConection.validarLogin(user, password);
-        if (usuario != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return usuario != null;
     }
 
     @Override

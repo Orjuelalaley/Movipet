@@ -2,7 +2,6 @@ package main.proyecto_movipet.model.Entidades;
 
 public class Mascota {
     private int id;
-
     private String nombre;
     private String apodo;
     private String tipo;

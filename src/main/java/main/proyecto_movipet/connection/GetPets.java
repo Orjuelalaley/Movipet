@@ -29,10 +29,8 @@ public class GetPets {
                 mascota.setRaza(consulta.getString("Raza"));
                 mascota.setEdad(consulta.getInt("Edad"));
                 mascota.setComentarios(consulta.getString("Comentarios"));
-                if (mascota != null) {
-                    listaMascotas.add(mascota);
-                    usuario.setListaMascotas(listaMascotas);
-                }
+                listaMascotas.add(mascota);
+                usuario.setListaMascotas(listaMascotas);
             }
         } catch (Exception e) {
 

@@ -30,7 +30,6 @@ public class Usuario {
         this.Password = Password;
     }
 
-
     public String getNombre() {
         return nombre;
     }

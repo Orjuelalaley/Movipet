@@ -1,14 +1,16 @@
 package main.proyecto_movipet.interfaces;
 
+import main.proyecto_movipet.connection.RegPetInBD;
 import main.proyecto_movipet.model.Entidades.Mascota;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class DAOMascotasImplementacion implements DAOMascotas {
+
     @Override
-    public void registrarMascota(Mascota mascota) {
-
-
+    public void registrarMascota(String nombre, String apodo, String tipo, String raza, int edad, String comentarios) {
+        RegPetInBD regPetInBD = new RegPetInBD();
+        regPetInBD.registrarMascota(nombre,apodo, tipo, raza, edad, comentarios);
     }
 }

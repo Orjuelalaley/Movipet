@@ -2,6 +2,7 @@ package main.proyecto_movipet.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,17 +12,26 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.proyecto_movipet.connection.ConnetionDB;
+import main.proyecto_movipet.connection.RegInBD;
+import main.proyecto_movipet.connection.RegPetInBD;
+import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Reg_mascotasController {
 
+
+    public AnchorPane parent;
+    public JFXButton GetBack;
     @FXML
     private JFXCheckBox Cat;
 
@@ -53,6 +63,7 @@ public class Reg_mascotasController {
 
     @FXML
     void Register_mascota() {
+        RegPetInBD regPetInBD = new RegPetInBD();
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Cat.isSelected() && !Dog.isSelected()) {
             Type = "Gato";
@@ -61,6 +72,18 @@ public class Reg_mascotasController {
         }
         if (!Pet_name.getText().isBlank() && !Short_name.getText().isBlank() && !Pet_Class.getText().isBlank()
                 && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank() && Type != null) {
+            Pattern p = Pattern.compile("^\\d{1,2}$");
+            Matcher m = p.matcher(Pet_Age.getText());
+            if (m.matches()){
+                regPetInBD.registrarMascota(Pet_name.getText(), Short_name.getText(),Type, Pet_Class.getText(), Integer.parseInt(Pet_Age.getText()), Comments.getText());
+                Cargador cargador = new Cargador();
+                cargador.load("/main/proyecto_movipet/view/Reg_mascotas.fxml","Pantalla principal");
+            }else {
+                alerta.setTitle("Error");
+                alerta.setHeaderText("Error en el campo Edad");
+                alerta.setContentText("La edad debe ser un numero entero");
+                alerta.showAndWait();
+            }
             //Register_pet();
         } else if (Pet_name.getText().isBlank() && !Short_name.getText().isBlank()
                 && !Pet_Class.getText().isBlank() && !Pet_Age.getText().isBlank() && !Comments.getText().isBlank()) {
@@ -119,32 +142,11 @@ public class Reg_mascotasController {
         }
     }
 
-    /*private void Register_pet() {
-        ConnetionDB connect = new ConnetionDB();
-        Connection connectionDB = connect.getConnection();
-
-        try {
-
-            PreparedStatement ready = connectionDB.prepareStatement("insert  into info_mascotas values (?,?,?,?,?,?,?)");
-
-            ready.setString(1, String.valueOf(pet_id));
-            ready.setString(2, Pet_name.getText().trim());
-            ready.setString(3, Short_name.getText().trim());
-            ready.setString(4, Type.trim());
-            ready.setString(5, Pet_Class.getText().trim());
-            ready.setString(6, Pet_Age.getText().trim());
-            ready.setString(7, Comments.getText().trim());
-            ready.executeUpdate();
-            Warning_text.setText("Registro De la mascota Completado !!");
-            Next_Screen();
-        }catch (Exception e){
-            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
-            System.err.println("Detalle del error: ");
-            e.printStackTrace();
-        }
-    }*/
+    @FXML
     public void Next_Screen(){
         try {
+            Cargador cargador = new Cargador();
+            cargador.load("/main/proyecto_movipet/view/Main_page.fxml", "Movipet");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_page.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -167,5 +169,10 @@ public class Reg_mascotasController {
 
     public void close_app(MouseEvent event) {
         Cerrar_app.close();
+    }
+
+    public void Start_Again(ActionEvent event) {
+        Cargador cargador = new Cargador();
+        cargador.load("/main/proyecto_movipet/view/Reg_users.fxml","Registro de usuarios");
     }
 }

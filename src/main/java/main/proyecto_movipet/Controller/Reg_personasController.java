@@ -58,6 +58,7 @@ public class Reg_personasController {
 
 
     public void Register_persona(){
+        Cargador cargador = new Cargador();
         DAOUsuarioImplementacion usuario_dao = new DAOUsuarioImplementacion();
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
@@ -72,8 +73,12 @@ public class Reg_personasController {
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Gender != null && !Age.getText().isBlank()
                 && !Phone.getText().isBlank()) {
             Pattern p = Pattern.compile("^\\d{10}$");
+            Pattern ptwo = Pattern.compile("^\\d{9}$");
+            Pattern pthree = Pattern.compile("^\\d{8}$");
             Matcher m = p.matcher(ID.getText());
-            if (m.matches()) {
+            Matcher mtwo = ptwo.matcher(ID.getText());
+            Matcher mthree = pthree.matcher(ID.getText());
+            if (m.matches() || mtwo.matches() || mthree.matches()) {
                 Pattern p2 = Pattern.compile("^\\d{10}$");
                 Matcher m2 = p2.matcher(Phone.getText());
                 if (m2.matches()) {
@@ -83,7 +88,8 @@ public class Reg_personasController {
                         Pattern p4 = Pattern.compile("^(.+)@(.+)$");
                         Matcher m4 = p4.matcher(Email.getText());
                         if (m4.matches()) {
-                            usuario_dao.registrar(Integer.parseInt(ID.getText()),Name.getText(),Email.getText(),Gender,Integer.parseInt(Age.getText()),Phone.getText(),User.getText(),Password.getText());
+                            //usuario_dao.registrar(Integer.parseInt(ID.getText()),Name.getText(),Email.getText(),Gender,Integer.parseInt(Age.getText()),Phone.getText(),User.getText(),Password.getText());
+                            Reg_pets();
                         }else {
                             alerta.setTitle("Correo invalido");
                             alerta.setHeaderText("Error");
@@ -105,7 +111,7 @@ public class Reg_personasController {
             }else{
                 alerta.setTitle("Registro");
                 alerta.setHeaderText("Registro fallido");
-                alerta.setContentText("El número de teléfono no es válido");
+                alerta.setContentText("El numero de identificación debe tener 8, 9 o 10 digitos");
                 alerta.showAndWait();
             }
 

@@ -1,6 +1,8 @@
 package main.proyecto_movipet.connection;
 
 import javafx.scene.control.Alert;
+import main.proyecto_movipet.Utility.TransportInfo;
+import main.proyecto_movipet.model.Entidades.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
