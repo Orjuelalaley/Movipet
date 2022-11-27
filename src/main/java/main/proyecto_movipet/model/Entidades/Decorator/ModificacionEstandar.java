@@ -21,7 +21,7 @@ public class ModificacionEstandar implements IMenuModificaciones {
         boolean bandera = false;
 
         for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-            if (idBuscar.equals(usuario.getId())) {
+            if (idBuscar.equals(usuario.getCedula())) {
                 bandera = true;
                 usuario.setUsuario(nombreNuevo);
                 usuario.setPassword(contraNueva);

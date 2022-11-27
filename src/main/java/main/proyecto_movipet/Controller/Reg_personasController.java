@@ -2,32 +2,24 @@ package main.proyecto_movipet.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import main.proyecto_movipet.connection.ConnetionDB;
+import main.proyecto_movipet.interfaces.DAOUsuarioImplementacion;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
-
-import java.io.IOException;
-import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Reg_personasController {
 
@@ -48,7 +40,6 @@ public class Reg_personasController {
     private JFXCheckBox Other;
     @FXML
     private TextField ID;
-
     @FXML
     private TextField Name;
 
@@ -61,10 +52,13 @@ public class Reg_personasController {
     private TextField User;
     @FXML
     private Label Confirm;
+
     private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     private String Gender = null;
 
+
     public void Register_persona(){
+        DAOUsuarioImplementacion usuario_dao = new DAOUsuarioImplementacion();
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
          Gender = "Masculino";
@@ -72,16 +66,52 @@ public class Reg_personasController {
             Gender = "Femenino";
         } else if (!Male.isSelected() && !Female.isSelected() && Other.isSelected()) {
             Gender = "Otro";
-
         }
 
         if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && Gender != null && !Age.getText().isBlank()
                 && !Phone.getText().isBlank()) {
-            Reg_pets();
+            Pattern p = Pattern.compile("^\\d{10}$");
+            Matcher m = p.matcher(ID.getText());
+            if (m.matches()) {
+                Pattern p2 = Pattern.compile("^\\d{10}$");
+                Matcher m2 = p2.matcher(Phone.getText());
+                if (m2.matches()) {
+                    Pattern p3 = Pattern.compile("^\\d{1,2}$");
+                    Matcher m3 = p3.matcher(Age.getText());
+                    if (m3.matches()) {
+                        Pattern p4 = Pattern.compile("^(.+)@(.+)$");
+                        Matcher m4 = p4.matcher(Email.getText());
+                        if (m4.matches()) {
+                            usuario_dao.registrar(Integer.parseInt(ID.getText()),Name.getText(),Email.getText(),Gender,Integer.parseInt(Age.getText()),Phone.getText(),User.getText(),Password.getText());
+                        }else {
+                            alerta.setTitle("Correo invalido");
+                            alerta.setHeaderText("Error");
+                            alerta.setContentText("Correo invalido");
+                            alerta.showAndWait();
+                        }
+                    }else{
+                        alerta.setTitle("Error");
+                        alerta.setHeaderText("Error");
+                        alerta.setContentText("La edad debe ser un numero");
+                        alerta.showAndWait();
+                    }
+                }else{
+                    alerta.setTitle("Error");
+                    alerta.setHeaderText("Error");
+                    alerta.setContentText("El numero de telefono debe tener 10 digitos");
+                    alerta.showAndWait();
+                }
+            }else{
+                alerta.setTitle("Registro");
+                alerta.setHeaderText("Registro fallido");
+                alerta.setContentText("El número de teléfono no es válido");
+                alerta.showAndWait();
+            }
+
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
-                && Phone.getText().isBlank() ) {
+                && Phone.getText().isBlank()) {
                 alerta.setTitle("Error");
                 alerta.setHeaderText("Error al registrar");
                 alerta.setContentText("Por favor ingrese un numero de telefono");
@@ -98,7 +128,7 @@ public class Reg_personasController {
                 && !Phone.getText().isBlank() ) {
             alerta.setTitle("Error");
             alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un numero de identificacion");
+            alerta.setContentText("Por favor ingrese un numero de identificación");
             alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && !Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Male.isSelected()
@@ -149,7 +179,7 @@ public class Reg_personasController {
                 && !Phone.getText().isBlank() ) {
             alerta.setTitle("Error");
             alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un correo electronico");
+            alerta.setContentText("Por favor ingrese un correo electonico");
             alerta.showAndWait();
         } else if (!Name.getText().isBlank() && !User.getText().isBlank() && Password.getText().isBlank()
                 && !Email.getText().isBlank() && !ID.getText().isBlank() && !Age.getText().isBlank()
@@ -178,50 +208,8 @@ public class Reg_personasController {
             alerta.setContentText("Por favor llene todos los campos");
             alerta.showAndWait();
         }
-        try {
-            int numero = BigInteger.valueOf(Long.parseLong(ID.getText())).intValueExact();
-            if (numero > 0) {
-                alerta.setTitle("Error");
-                alerta.setHeaderText("El numero de telefono es muy corto");
-                alerta.setContentText("El numero de telefono no puede tener menos de 10  digitos");
-                alerta.showAndWait();
-            }
-
-        }catch (Exception e){
-            alerta.setTitle("Error");
-            alerta.setHeaderText("Error al registrar");
-            alerta.setContentText("Por favor ingrese un numero de telefono");
-            alerta.showAndWait();
-        }
     }
 
-
-    public void Register_user() {
-        ConnetionDB connect = new ConnetionDB();
-        Connection connectionDB = connect.getConnection();
-        try {
-            PreparedStatement ready = connectionDB.prepareStatement("insert  into movipet_db.clientes values (?,?,?,?,?,?,?,?)");
-            ready.setString(1, ID.getText().trim());
-            ready.setString(2, Name.getText().trim());
-            ready.setString(3, Email.getText().trim());
-            ready.setString(4, Gender.trim());
-            ready.setString(5, Age.getText().trim());
-            ready.setString(6, Phone.getText().trim());
-            ready.setString(7, User.getText().trim());
-            ready.setString(8, Password.getText().trim());
-            ready.executeUpdate();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registro exitoso");
-            alert.setHeaderText(null);
-            alert.setContentText("Usuario registrado exitosamente");
-            alert.showAndWait();
-            Reg_pets();
-        } catch (Exception e) {
-            System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());
-            System.err.println("Detalle del error: ");
-            e.printStackTrace();
-        }
-    }
     public void Reg_pets(){
         try {
             Cargador cargador = new Cargador();

@@ -37,7 +37,7 @@ public class MenuAdministrador {
         System.out.print("Por favor digite el correo del usuario: ");
         String correo = scanner.next();
         System.out.print("Por favor digite la cedula del usuario: ");
-        int cedula = Integer.parseInt(scanner.next());
+        int cedula = scanner.nextInt();
         System.out.print("Por favor digite el genero del usuario: ");
         String genero = scanner.next();
         System.out.print("Por favor digite la edad del usuario: ");
@@ -51,7 +51,7 @@ public class MenuAdministrador {
         System.out.println();
         System.out.println("Por favor digite los datos de su mascota: ");
         System.out.print("Por favor digite el id de la mascota: ");
-        String nomMascota = scanner.next();
+        int nomMascota = scanner.nextInt(); ;
         System.out.print("Por favor digite el apodo de la mascota: ");
         String apodo = scanner.next();
         System.out.print("Por favor digite el tipo de la mascota (perro/gato): ");
@@ -92,7 +92,7 @@ public class MenuAdministrador {
             boolean bandera = false;
 
             for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-                if (idBuscar.equals(usuario.getId())) {
+                if (idBuscar.equals(usuario.getCelular())) {
                     bandera = true;
                 }
             }

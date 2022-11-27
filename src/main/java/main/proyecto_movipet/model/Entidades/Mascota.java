@@ -1,7 +1,9 @@
 package main.proyecto_movipet.model.Entidades;
 
 public class Mascota {
-    private String id;
+    private int id;
+
+    private String nombre;
     private String apodo;
     private String tipo;
     private String raza;
@@ -11,7 +13,7 @@ public class Mascota {
     public Mascota() {
     }
 
-    public Mascota(String id, String apodo, String tipo, String raza, int edad, String comentarios) {
+    public Mascota(int id, String apodo, String tipo, String raza, int edad, String comentarios) {
         this.id = id;
         this.apodo = apodo;
         this.tipo = tipo;
@@ -20,12 +22,20 @@ public class Mascota {
         this.comentarios = comentarios;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApodo() {
@@ -71,11 +81,12 @@ public class Mascota {
     @Override
     public String toString() {
         return
-        "Id: " + id +"\n"  +
-        "Apodo: " + apodo +"\n"  +
-        "Tipo: " + tipo + "\n"  +
-        "Raza: " + raza + "\n"  +
-        "Edad: " + edad + "\n" +
-        "Comentarios Generales: " + comentarios + "\n" ;
+                "Id: " + id +"\n"  +
+                "Nombre: " + nombre +"\n"  +
+                "Apodo: " + apodo +"\n"  +
+                "Tipo: " + tipo + "\n"  +
+                "Raza: " + raza + "\n"  +
+                "Edad: " + edad + "\n" +
+                "Comentarios Generales: " + comentarios + "\n" ;
     }
 }

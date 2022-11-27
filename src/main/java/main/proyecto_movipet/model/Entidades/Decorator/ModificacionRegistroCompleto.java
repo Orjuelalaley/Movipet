@@ -29,7 +29,7 @@ public class ModificacionRegistroCompleto extends ModificacionDecoradora {
         System.out.println( );
 
         for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-            if (idBuscar.equals(usuario.getId())) {
+            if (idBuscar.equals(usuario.getCelular())) {
                 bandera = true;
                 usuario.setCelular(nuevoTel);
                 usuario.setCorreo(nuevoCorreo);

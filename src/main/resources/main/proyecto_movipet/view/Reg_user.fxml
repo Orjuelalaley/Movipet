@@ -14,153 +14,131 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="parent" stylesheets="@Style/Reg_Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_personasController">
-   <children>
-      <VBox layoutX="16.0" layoutY="9.0" prefHeight="241.0" prefWidth="285.0">
-         <children>
-            <ImageView fitHeight="246.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/movipet_imagen.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <FontAwesomeIconView glyphName="CLOSE" layoutX="983.0" layoutY="37.0" onMouseClicked="#close_app" size="2EM" text="" />
-      <Label layoutX="434.0" layoutY="16.0" prefHeight="68.0" prefWidth="377.0" text="Registro De Usuarios" wrapText="true">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <VBox layoutX="434.0" layoutY="95.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Nombre">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="Name" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="434.0" layoutY="143.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Email">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="Email" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="434.0" layoutY="193.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Cedula">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="ID" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <JFXCheckBox fx:id="Other" layoutX="791.0" layoutY="246.0" lineSpacing="10.0" prefHeight="35.0" prefWidth="127.0" stylesheets="@Style/Reg_Style.css" text="Otro">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="Female" contentDisplay="RIGHT" layoutX="664.0" layoutY="246.0" lineSpacing="5.0" prefHeight="35.0" prefWidth="127.0" stylesheets="@Style/Reg_Style.css" text="Femenino">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="Male" layoutX="537.0" layoutY="246.0" lineSpacing="1.0" prefHeight="35.0" prefWidth="127.0" stylesheets="@Style/Reg_Style.css" text="Masculino">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXCheckBox>
-      <VBox layoutX="442.0" layoutY="249.0">
-         <children>
-            <HBox prefHeight="30.0" prefWidth="70.0" styleClass="hbox" stylesheets="@Style/Reg_Style.css">
-               <children>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="70.0" stylesheets="@Style/Reg_Style.css" text="Genero">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="442.0" layoutY="292.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="250.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="100.0" text="Edad">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="Age" alignment="CENTER" prefHeight="37.0" prefWidth="171.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="442.0" layoutY="337.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Celular">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="Phone" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="442.0" layoutY="386.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Usuario">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="User" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox layoutX="442.0" layoutY="431.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="400.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Contraseña">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="Password" alignment="CENTER" prefHeight="35.0" prefWidth="369.0" styleClass="text-fields" stylesheets="@Style/Reg_Style.css" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <JFXButton layoutX="511.0" layoutY="503.0" onAction="#BackScreen" prefHeight="46.0" prefWidth="109.0" text="Atrás" />
-      <JFXButton layoutX="708.0" layoutY="503.0" onAction="#Register_persona" prefHeight="52.0" prefWidth="90.0" text="Siguiente" />
-   </children>
+<AnchorPane fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0"
+            styleClass="parent" stylesheets="@Style/Reg_Style.css" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.Reg_personasController">
    <opaqueInsets>
-      <Insets />
+      <Insets/>
    </opaqueInsets>
+   <VBox layoutX="16.0" layoutY="9.0" prefHeight="241.0" prefWidth="285.0">
+      <ImageView fitHeight="246.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@Images/movipet_imagen.jpg"/>
+      </ImageView>
+   </VBox>
+   <FontAwesomeIconView glyphName="CLOSE" layoutX="983.0" layoutY="37.0" onMouseClicked="#close_app" size="2EM"
+                        text=""/>
+   <Label layoutX="434.0" layoutY="16.0" prefHeight="68.0" prefWidth="377.0" text="Registro De Usuarios"
+          wrapText="true">
+      <font>
+         <Font size="40.0"/>
+      </font>
+   </Label>
+   <VBox layoutX="434.0" layoutY="95.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Nombre">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="Name" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <VBox layoutX="434.0" layoutY="143.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Email">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="Email" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <VBox layoutX="434.0" layoutY="193.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Cedula">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="ID" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <JFXCheckBox fx:id="Other" layoutX="791.0" layoutY="246.0" lineSpacing="10.0" prefHeight="35.0" prefWidth="127.0"
+                stylesheets="@Style/Reg_Style.css" text="Otro">
+      <font>
+         <Font size="17.0"/>
+      </font>
+   </JFXCheckBox>
+   <JFXCheckBox fx:id="Female" contentDisplay="RIGHT" layoutX="664.0" layoutY="246.0" lineSpacing="5.0"
+                prefHeight="35.0" prefWidth="127.0" stylesheets="@Style/Reg_Style.css" text="Femenino">
+      <font>
+         <Font size="17.0"/>
+      </font>
+   </JFXCheckBox>
+   <JFXCheckBox fx:id="Male" layoutX="537.0" layoutY="246.0" lineSpacing="1.0" prefHeight="35.0" prefWidth="127.0"
+                stylesheets="@Style/Reg_Style.css" text="Masculino">
+      <font>
+         <Font size="17.0"/>
+      </font>
+   </JFXCheckBox>
+   <VBox layoutX="442.0" layoutY="249.0">
+      <HBox prefHeight="30.0" prefWidth="70.0" styleClass="hbox" stylesheets="@Style/Reg_Style.css">
+         <Label alignment="CENTER" prefHeight="37.0" prefWidth="70.0" stylesheets="@Style/Reg_Style.css"
+                text="Genero">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+      </HBox>
+   </VBox>
+   <VBox layoutX="442.0" layoutY="292.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="250.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="100.0" text="Edad">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="Age" alignment="CENTER" prefHeight="37.0" prefWidth="171.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <VBox layoutX="442.0" layoutY="337.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Celular">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="Phone" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <VBox layoutX="442.0" layoutY="386.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Usuario">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="User" alignment="CENTER" prefHeight="39.0" prefWidth="400.0" styleClass="text-fields"
+                    stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <VBox layoutX="442.0" layoutY="431.0" styleClass="vbox" stylesheets="@Style/Reg_Style.css">
+      <HBox prefHeight="35.0" prefWidth="400.0">
+         <Label alignment="CENTER" prefHeight="32.0" prefWidth="155.0" text="Contraseña">
+            <font>
+               <Font size="17.0"/>
+            </font>
+         </Label>
+         <PasswordField fx:id="Password" alignment="CENTER" prefHeight="35.0" prefWidth="369.0"
+                        styleClass="text-fields" stylesheets="@Style/Reg_Style.css"/>
+      </HBox>
+   </VBox>
+   <JFXButton layoutX="511.0" layoutY="503.0" onAction="#BackScreen" prefHeight="46.0" prefWidth="109.0" text="Atrás"/>
+   <JFXButton layoutX="708.0" layoutY="503.0" onAction="#Register_persona" prefHeight="52.0" prefWidth="90.0"
+              text="Siguiente"/>
 </AnchorPane>

@@ -1,10 +1,10 @@
 package main.proyecto_movipet.model.Entidades;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Usuario {
 
-    private String id;
     private String nombre;
     private String correo;
     private int cedula;
@@ -14,7 +14,7 @@ public class Usuario {
     private String usuario;
 
     private String Password;
-    private LinkedList<Mascota> listaMascotas;
+    private List<Mascota> listaMascotas;
 
     public Usuario() {
     }
@@ -30,13 +30,6 @@ public class Usuario {
         this.Password = Password;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -102,18 +95,17 @@ public class Usuario {
         this.Password = Password;
     }
 
-    public LinkedList<Mascota> getListaMascotas() {
+    public List<Mascota> getListaMascotas() {
         return listaMascotas;
     }
 
-    public void setListaMascotas(LinkedList<Mascota> listaMascotas) {
+    public void setListaMascotas(List<Mascota> listaMascotas) {
         this.listaMascotas = listaMascotas;
     }
 
     @Override
     public String toString() {
         return
-            "Id: " + id + "\n" +
             "Nombre: " + nombre + "\n" +
             "Correo: " + correo +"\n" +
             "Cedula: " + cedula + "\n" +
