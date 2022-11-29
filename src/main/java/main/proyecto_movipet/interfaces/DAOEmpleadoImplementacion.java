@@ -95,19 +95,6 @@ public class DAOEmpleadoImplementacion implements DAOUsuario {
 
     @Override
     public void buscar(empleado emp) {
-        try {
-            Connection conectar = conexion.conectar();
-            PreparedStatement buscar = conectar.prepareStatement("SELECT * FROM test_dao.test_empleado WHERE idtest_empleados = ?");
-            buscar.setInt(1, emp.getId());
-            buscar.executeQuery();
-            ResultSet consulta = buscar.executeQuery();
-            if (consulta.next()) {
-                emp.setId(consulta.getInt("idtest_empleados"));
-                emp.setNombre(consulta.getString("nombre"));
-            }
-            conexion.cerrarConexion();
-        } catch (Exception e ) {
-            System.err.println("Error al buscar empleado" + e.getMessage());
-        }
+
     }
 }*/

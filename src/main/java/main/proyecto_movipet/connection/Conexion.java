@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class Conexion {
     public static Connection conexion;
     private static Conexion instancia;
-
     String driver = "com.mysql.cj.jdbc.Driver";
     String user = "root";
     String password = "123456";

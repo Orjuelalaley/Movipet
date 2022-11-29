@@ -1,6 +1,5 @@
 package main.proyecto_movipet.model.Entidades.Facade;
 
-import main.proyecto_movipet.model.Entidades.LimpiarConsola;
 import main.proyecto_movipet.model.Entidades.Singleton.Logger;
 
 
@@ -11,9 +10,8 @@ public class MenuPrincipal {
     public MenuPrincipal() {
     }
 
-    public void menuPrincipal ( )  {
+    public void menuPrincipal ( ) {
         Scanner scanner = new Scanner(System.in);
-        LimpiarConsola limpiar = new LimpiarConsola( );
 
         // Creación del patron de diseño Singleton
         Logger logger = Logger.getInstance();
@@ -38,8 +36,12 @@ public class MenuPrincipal {
                 case 1:
                 {
                     System.out.println("Modo Usuario");
-                    System.out.println("Aca se coloca todo lo que se tenia hasta el momento");
-                    menu2.menuUsuario( ); // Falta Implementar
+                    try {
+                        menu2.menuUsuario();
+                    }catch (Exception e){
+                        System.err.println("El error esta en " + e.getMessage());
+                    }
+
                     System.out.println();
                     System.out.println();
                     break;

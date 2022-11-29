@@ -18,22 +18,22 @@ public class GetPets {
             Mascota mascota = new Mascota();
             Connection conectar = conexion.conectar();
             List<Mascota> listaMascotas = new ArrayList<>();
-            PreparedStatement pets = conectar.prepareStatement("SELECT * FROM movipet_db.mascotas WHERE FK_id = ?");
+            PreparedStatement pets = conectar.prepareStatement("SELECT * FROM movipet_db.mascotas WHERE id_duenio = ?");
             pets.setInt(1, usuario.getCedula());
             ResultSet consulta = pets.executeQuery();
+
             while (consulta.next()) {
-                mascota.setId(consulta.getInt("FK_id"));
                 mascota.setNombre(consulta.getString("Nombre"));
                 mascota.setApodo(consulta.getString("Apodo"));
                 mascota.setTipo(consulta.getString("Tipo"));
                 mascota.setRaza(consulta.getString("Raza"));
                 mascota.setEdad(consulta.getInt("Edad"));
                 mascota.setComentarios(consulta.getString("Comentarios"));
+                mascota.setIdCliente(consulta.getInt("id_duenio"));
                 listaMascotas.add(mascota);
                 usuario.setListaMascotas(listaMascotas);
             }
         } catch (Exception e) {
-
             System.out.println("Error al obtener mascotas "+e.getMessage());
 
         }

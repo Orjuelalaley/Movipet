@@ -15,14 +15,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.proyecto_movipet.connection.ConnetionDB;
-import main.proyecto_movipet.connection.RegInBD;
 import main.proyecto_movipet.connection.RegPetInBD;
+import main.proyecto_movipet.model.Entidades.Mascota;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,6 +59,7 @@ public class Reg_mascotasController {
 
     @FXML
     void Register_mascota() {
+
         RegPetInBD regPetInBD = new RegPetInBD();
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Cat.isSelected() && !Dog.isSelected()) {
@@ -75,9 +72,14 @@ public class Reg_mascotasController {
             Pattern p = Pattern.compile("^\\d{1,2}$");
             Matcher m = p.matcher(Pet_Age.getText());
             if (m.matches()){
-                regPetInBD.registrarMascota(Pet_name.getText(), Short_name.getText(),Type, Pet_Class.getText(), Integer.parseInt(Pet_Age.getText()), Comments.getText());
-                Cargador cargador = new Cargador();
-                cargador.load("/main/proyecto_movipet/view/Reg_mascotas.fxml","Pantalla principal");
+                Mascota mascota = new Mascota();
+                mascota.setNombre(Pet_name.getText());
+                mascota.setApodo(Short_name.getText());
+                mascota.setTipo(Type);
+                mascota.setRaza(Pet_Class.getText());
+                mascota.setEdad(Integer.parseInt(Pet_Age.getText()));
+                mascota.setComentarios(Comments.getText());
+                regPetInBD.registrarMascota(mascota);
             }else {
                 alerta.setTitle("Error");
                 alerta.setHeaderText("Error en el campo Edad");
@@ -172,7 +174,15 @@ public class Reg_mascotasController {
     }
 
     public void Start_Again(ActionEvent event) {
-        Cargador cargador = new Cargador();
-        cargador.load("/main/proyecto_movipet/view/Reg_users.fxml","Registro de usuarios");
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setTitle("Confirmación");
+        alerta.setHeaderText("Al regresar a la pantalla principal se perderán los datos ingresados");
+        alerta.setContentText("¿Desea continuar?");
+        alerta.showAndWait();
+        if (alerta.getAlertType() == Alert.AlertType.CONFIRMATION) {
+            Cargador cargador = new Cargador();
+            cargador.load("/main/proyecto_movipet/view/Reg_user.fxml","Registro de usuarios");
+        }
+
     }
 }

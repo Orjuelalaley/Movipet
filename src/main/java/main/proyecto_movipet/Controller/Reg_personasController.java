@@ -12,8 +12,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.proyecto_movipet.connection.ConnetionDB;
 import main.proyecto_movipet.interfaces.DAOUsuarioImplementacion;
+import main.proyecto_movipet.model.Entidades.Usuario;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
@@ -78,7 +82,7 @@ public class Reg_personasController {
             Matcher m = p.matcher(ID.getText());
             Matcher mtwo = ptwo.matcher(ID.getText());
             Matcher mthree = pthree.matcher(ID.getText());
-            if (m.matches() || mtwo.matches() || mthree.matches()) {
+            if (m.matches() || mtwo.matches() || mthree.matches()){
                 Pattern p2 = Pattern.compile("^\\d{10}$");
                 Matcher m2 = p2.matcher(Phone.getText());
                 if (m2.matches()) {
@@ -88,8 +92,36 @@ public class Reg_personasController {
                         Pattern p4 = Pattern.compile("^(.+)@(.+)$");
                         Matcher m4 = p4.matcher(Email.getText());
                         if (m4.matches()) {
-                            //usuario_dao.registrar(Integer.parseInt(ID.getText()),Name.getText(),Email.getText(),Gender,Integer.parseInt(Age.getText()),Phone.getText(),User.getText(),Password.getText());
-                            Reg_pets();
+                            Usuario usuario = new Usuario();
+                            usuario.setCedula(Integer.parseInt(ID.getText()));
+                            usuario.setNombre(Name.getText());
+                            usuario.setCorreo(Email.getText());
+                            usuario.setGenero(Gender);
+                            usuario.setEdad(Integer.parseInt(Age.getText()));
+                            usuario.setCelular(Phone.getText());
+                            usuario.setUsuario(User.getText());
+                            usuario.setPassword(Password.getText());
+                            try {
+                                    FileWriter myWriter = new FileWriter("src\\main\\java\\main\\proyecto_movipet\\sesion\\user_sesion.txt");
+                                    myWriter.write(ID.getText());
+                                    myWriter.close();
+                            }catch (Exception e){
+                                Logger.getLogger(Reg_personasController.class.getName()).log(Level.SEVERE, null, e);
+                            }
+                            if(usuario_dao.registrar(usuario)){
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Registro");
+                                alert.setHeaderText("Registro exitoso");
+                                alert.setContentText("El registro se ha realizado con éxito");
+                                alert.showAndWait();
+                                Reg_pets();
+                            }else {
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setTitle("Registro");
+                                alert.setHeaderText("Registro fallido");
+                                alert.setContentText("El ID o el nombre de usuario ya se encuentra en uso");
+                                alert.showAndWait();
+                            }
                         }else {
                             alerta.setTitle("Correo invalido");
                             alerta.setHeaderText("Error");
@@ -215,7 +247,6 @@ public class Reg_personasController {
             alerta.showAndWait();
         }
     }
-
     public void Reg_pets(){
         try {
             Cargador cargador = new Cargador();

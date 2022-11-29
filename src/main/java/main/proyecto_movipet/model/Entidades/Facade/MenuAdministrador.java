@@ -3,13 +3,13 @@ package main.proyecto_movipet.model.Entidades.Facade;
 import main.proyecto_movipet.model.Entidades.Decorator.IMenuModificaciones;
 import main.proyecto_movipet.model.Entidades.Decorator.ModificacionEstandar;
 import main.proyecto_movipet.model.Entidades.Decorator.ModificacionRegistroCompleto;
-import main.proyecto_movipet.model.Entidades.LimpiarConsola;
 import main.proyecto_movipet.model.Entidades.ListaUsuarios;
 import main.proyecto_movipet.model.Entidades.Mascota;
 import main.proyecto_movipet.model.Entidades.Singleton.Logger;
 import main.proyecto_movipet.model.Entidades.Usuario;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static javafx.scene.input.KeyCode.ALT;
@@ -20,18 +20,13 @@ public class MenuAdministrador {
 
     // Se crea una instancia del Logger, pero como ya se instancio en la clase MenuPrincipal, tiene ese mismo mensaje por default
     Logger logger2 = Logger.getInstance();
-    LimpiarConsola limpiar = new LimpiarConsola();
 
-    LinkedList<Mascota> listaMascotas = new LinkedList<>();
-    LinkedList<Usuario> usuarios = new LinkedList<>();
-    ListaUsuarios listaUsuarios = new ListaUsuarios(usuarios);
+    List<Mascota> listaMascotas = new ArrayList<>();
 
     public void llenarUsuario() {
 
         System.out.println(" --------------------------------- LLENAR DATOS DEL USUARIO POR CONSOLA  --------------------------------- ");
         System.out.println();
-        System.out.print("Por favor digite el id del usuario: ");
-        String id = scanner.next();
         System.out.print("Por favor digite el nombre del usuario: ");
         String nombre = scanner.next();
         System.out.print("Por favor digite el correo del usuario: ");
@@ -61,26 +56,35 @@ public class MenuAdministrador {
         System.out.println("Tiene observaciones especiales sobre su mascota " + tipo + " (Si / No)");
         String resultado = scanner.next();
         String comentarios;
-
-        if (resultado.equals("Si") || resultado.equals("si")) {
-            System.out.println("Por favor digite observaciones importantes sobre su mascota: ");
+        if (resultado.equalsIgnoreCase("Si")) {
+            System.out.println("Por favor digite las observaciones especiales de su mascota " + tipo + ": ");
             comentarios = scanner.next();
-            System.out.println();
         } else {
-            comentarios = " ";
+            comentarios = null;
         }
-
-        Mascota mascota = new Mascota(nomMascota, apodo, tipo, raza, edad, comentarios);
+        Mascota mascota = new Mascota();
+        mascota.setId(nomMascota);
+        mascota.setNombre(nombre);
+        mascota.setApodo(apodo);
+        mascota.setTipo(tipo);
+        mascota.setRaza(raza);
+        mascota.setComentarios(comentarios);
         listaMascotas.add(mascota);
 
-        Usuario usuario = new Usuario(nombre, correo, cedula, genero, edad, celular, nomUsu, password);
-        listaUsuarios.getListaUsuarios().add(usuario);
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombre);
+        usuario.setCorreo(correo);
+        usuario.setCedula(cedula);
+        usuario.setGenero(genero);
+        usuario.setEdad(edad);
+        usuario.setCelular(celular);
+        usuario.setUsuario(nomUsu);
+        usuario.setPassword(password);
 
         System.out.println("Sus datos fueron ingresados correctamente!");
         System.out.println();
-        System.out.println(listaUsuarios);
+        System.out.println(usuario);
     }
-
     // Creación de clases de busqueda para utilizar el patron de diseño Facade
     public class BuscarDatosId {
 
@@ -91,11 +95,6 @@ public class MenuAdministrador {
 
             boolean bandera = false;
 
-            for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-                if (idBuscar.equals(usuario.getCelular())) {
-                    bandera = true;
-                }
-            }
             if (!bandera) {
                 System.out.println( );
                 System.out.println("No se encontro el id " + idBuscar + " de la persona en la base de datos");
@@ -111,11 +110,6 @@ public class MenuAdministrador {
         public void buscarDatosCedula(String idCedula) {
             boolean bandera = false;
 
-            for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-                if (idCedula.equals(usuario.getCedula())) {
-                    bandera = true;
-                }
-            }
             if (!bandera) {
                 System.out.println("No se encontro la cedula " + idCedula + " en la base de datos");
             }
@@ -130,17 +124,7 @@ public class MenuAdministrador {
         public void buscarDatosMascota(String idMascota) {
             boolean bandera = false;
 
-            for (Usuario usuario : listaUsuarios.getListaUsuarios()) {
-                for (Mascota mascota : usuario.getListaMascotas()) {
-                    if (idMascota.equals( mascota.getId())) {
-                        bandera = true;
-                        System.out.println( );
-                        System.out.println( "Se ha encontrado a la persona en la base de datos!!" );
-                        System.out.println( );
-                        System.out.println(usuario);
-                    }
-                }
-            }
+
 
             if (!bandera) {
                 System.out.println("No se encontro la mascota identificada con el id " + idMascota + " en la base de datos");
@@ -197,7 +181,7 @@ public class MenuAdministrador {
                     System.out.println( );
                     System.out.println("La modificacion se realizo satisfactoriamente!");
                     System.out.println( );
-                    imprimirUsuario( );
+
                     break;
                 }
 
@@ -213,7 +197,7 @@ public class MenuAdministrador {
                     System.out.println( );
                     System.out.println("La modificacion se realizo satisfactoriamente!");
                     System.out.println( );
-                    imprimirUsuario( );
+
                 }
 
                 case 3: {
@@ -231,10 +215,6 @@ public class MenuAdministrador {
         }while (opcion != 3);
     }
 
-    public void imprimirUsuario() {
-
-        System.out.println(listaUsuarios);
-    }
 
     public void menuAdministrador( ) {
 
@@ -288,7 +268,6 @@ public class MenuAdministrador {
                 }
 
                 case 4: {
-                    imprimirUsuario();
                     break;
                 }
 

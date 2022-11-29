@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="28.0" layoutY="35.0" prefHeight="230.0" prefWidth="272.0">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/movipet_imagen.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <FontAwesomeIconView layoutX="997.0" layoutY="24.0" wrappingWidth="15.99993896484375" />
+      <Label layoutX="72.0" layoutY="292.0" prefHeight="57.0" prefWidth="233.0" text="SERVICIOS">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="35.0" />
+         </font>
+      </Label>
+      <VBox layoutX="70.0" layoutY="376.0" prefHeight="127.0" prefWidth="177.0">
+         <children>
+            <ImageView fitHeight="169.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/dog.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
+      <Label layoutX="370.0" layoutY="33.0" prefHeight="49.0" prefWidth="673.0" text="Tenemos todo lo que tu perro necesita" textFill="#1500ff">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="538.0" layoutY="108.0" prefHeight="412.0" prefWidth="307.0">
+         <children>
+            <JFXButton buttonType="RAISED" prefHeight="212.0" prefWidth="321.0" style="-fx-background-color: #000000;" text="Atención a domicilio" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" prefHeight="199.0" prefWidth="320.0" style="-fx-background-color: #FFFFFF;" text="Atención a domicilio" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <ImageView fitHeight="100.0" fitWidth="120.0" layoutX="877.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/paticas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="168.0" layoutX="393.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/paticas.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,14 +1,9 @@
 package main.proyecto_movipet.interfaces;
 
-import javafx.scene.control.Alert;
-import main.proyecto_movipet.connection.Conexion;
 import main.proyecto_movipet.connection.RegInBD;
+import main.proyecto_movipet.connection.UserSearch;
 import main.proyecto_movipet.connection.Validar;
 import main.proyecto_movipet.model.Entidades.Usuario;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 
 public class DAOUsuarioImplementacion implements DAOUsuario {
@@ -20,8 +15,14 @@ public class DAOUsuarioImplementacion implements DAOUsuario {
     }
 
     @Override
-    public void registrar(int cedula, String nombre, String correo,String genero,int edad,String celular,String usuario, String password) {
+    public boolean registrar(Usuario usuario) {
         RegInBD regInBD = new RegInBD();
-        regInBD.registrarUsuario(cedula, nombre, correo, genero, edad, celular, usuario, password);
+        return regInBD.registrarUsuario(usuario);
+    }
+
+    @Override
+    public void buscar(Usuario emp) {
+        UserSearch userSearch = new UserSearch();
+        userSearch.buscarUsuario(emp.getCedula());
     }
 }
