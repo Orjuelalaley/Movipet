@@ -1,25 +1,16 @@
 package main.proyecto_movipet.Controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.proyecto_movipet.connection.ConnetionDB;
 import main.proyecto_movipet.interfaces.DAOUsuarioImplementacion;
 import main.proyecto_movipet.model.Entidades.Usuario;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -29,8 +20,6 @@ public class Reg_personasController {
 
     @FXML
     private AnchorPane parent;
-    @FXML
-    public JFXButton Next;
     @FXML
     private TextField Age;
     @FXML
@@ -55,14 +44,10 @@ public class Reg_personasController {
     @FXML
     private TextField User;
     @FXML
-    private Label Confirm;
-
-    private final static String ICON_NAME = "/main/proyecto_movipet/view/Images/JAJA.png";
     private String Gender = null;
 
 
     public void Register_persona(){
-        Cargador cargador = new Cargador();
         DAOUsuarioImplementacion usuario_dao = new DAOUsuarioImplementacion();
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         if (Male.isSelected() && !Female.isSelected() && !Other.isSelected()){
@@ -101,13 +86,6 @@ public class Reg_personasController {
                             usuario.setCelular(Phone.getText());
                             usuario.setUsuario(User.getText());
                             usuario.setPassword(Password.getText());
-                            try {
-                                    FileWriter myWriter = new FileWriter("src\\main\\java\\main\\proyecto_movipet\\sesion\\user_sesion.txt");
-                                    myWriter.write(ID.getText());
-                                    myWriter.close();
-                            }catch (Exception e){
-                                Logger.getLogger(Reg_personasController.class.getName()).log(Level.SEVERE, null, e);
-                            }
                             if(usuario_dao.registrar(usuario)){
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setTitle("Registro");
@@ -271,7 +249,7 @@ public class Reg_personasController {
         }
     }
 
-    public void close_app(MouseEvent event) {
+    public void close_app() {
         Cerrar_app.close();
     }
 

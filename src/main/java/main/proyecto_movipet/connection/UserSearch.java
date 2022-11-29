@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserSearch{
-    public void buscarUsuario(int id) {
+    public boolean buscarUsuario(int id) {
         Conexion conexion = Conexion.getInstance();
         try {
             Connection conectar = conexion.conectar();
@@ -21,12 +21,16 @@ public class UserSearch{
                 System.out.println(consulta.getString("Edad"));
                 System.out.println(consulta.getString("Celular"));
                 System.out.println(consulta.getString("Usuario"));
+                conexion.cerrarConexion();
+                return true;
             } else {
                 System.out.println("El usuario no existe");
+                conexion.cerrarConexion();
+                return false;
             }
-            conexion.cerrarConexion();
         } catch (Exception e) {
             System.err.println("Error al buscar empleado" + e.getMessage());
         }
+        return false;
     }
 }

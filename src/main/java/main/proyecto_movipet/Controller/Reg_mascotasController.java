@@ -85,6 +85,7 @@ public class Reg_mascotasController {
                     alert.setHeaderText("Registro exitoso");
                     alert.setContentText("El registro de la mascota se ha realizado con éxito");
                     alert.showAndWait();
+                    Next_Screen();
                 }
             }else {
                 alerta.setTitle("Error");
@@ -150,22 +151,11 @@ public class Reg_mascotasController {
         }
     }
 
-    @FXML
     public void Next_Screen(){
         try {
             Cargador cargador = new Cargador();
-            cargador.load("/main/proyecto_movipet/view/Main_page.fxml", "Movipet");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/proyecto_movipet/view/Main_page.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("Pantalla Principal de la aplicación");
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_NAME))));
-            stage.setScene(scene);
-            stage.show();
-            Stage myStage = (Stage) this.Reg_pets.getScene().getWindow();
-            myStage.close();
+            cargador.load("/main/proyecto_movipet/view/Services.fxml.fxml", "Movipet");
+            this.parent.getScene().getWindow().hide();
         }catch (Exception e)
             {
                 System.err.println("ocurrio un error \n " + "Mensaje del error : " + e.getMessage());

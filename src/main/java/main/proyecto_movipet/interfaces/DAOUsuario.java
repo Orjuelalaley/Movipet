@@ -5,5 +5,5 @@ import main.proyecto_movipet.model.Entidades.Usuario;
 public interface DAOUsuario {
     public boolean iniciarSesion(String usuario, String password);
     public boolean registrar(Usuario usuario);
-    public void buscar(Usuario emp);
+    public boolean buscar(Usuario emp);
 }

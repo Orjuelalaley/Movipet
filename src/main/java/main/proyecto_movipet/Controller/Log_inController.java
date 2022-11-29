@@ -40,7 +40,7 @@ public class Log_inController {
         }else if(!UserName.getText().isBlank() && !Password.getText().isBlank()){
             if (usuario_dao.iniciarSesion(UserName.getText(),Password.getText())){
                 Cargador cargador = new Cargador();
-                cargador.load("/main/proyecto_movipet/view/Main_page.fxml","Menu");
+                cargador.load("/main/proyecto_movipet/view/Services.fxml","Menu");
                 this.parent.getScene().getWindow().hide();
             }
         }

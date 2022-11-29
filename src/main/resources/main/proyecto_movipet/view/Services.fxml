@@ -20,7 +20,7 @@
             </ImageView>
          </children>
       </VBox>
-      <FontAwesomeIconView layoutX="997.0" layoutY="24.0" wrappingWidth="15.99993896484375" />
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="981.0" layoutY="43.0" size="30" wrappingWidth="15.99993896484375" />
       <Label layoutX="72.0" layoutY="292.0" prefHeight="57.0" prefWidth="233.0" text="SERVICIOS">
          <font>
             <Font name="Copperplate Gothic Bold" size="35.0" />

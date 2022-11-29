@@ -21,8 +21,8 @@ public class DAOUsuarioImplementacion implements DAOUsuario {
     }
 
     @Override
-    public void buscar(Usuario emp) {
+    public boolean buscar(Usuario usuario) {
         UserSearch userSearch = new UserSearch();
-        userSearch.buscarUsuario(emp.getCedula());
+         return  userSearch.buscarUsuario(usuario.getCedula());
     }
 }

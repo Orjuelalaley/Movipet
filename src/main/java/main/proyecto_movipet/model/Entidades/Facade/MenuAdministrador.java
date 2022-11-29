@@ -25,85 +25,86 @@ public class MenuAdministrador {
     List<Mascota> listaMascotas = new ArrayList<>();
 
     public void llenarUsuario() {
-
-        System.out.println(" --------------------------------- LLENAR DATOS DEL USUARIO POR CONSOLA  --------------------------------- ");
-        System.out.println();
-        System.out.print("Por favor digite el nombre del usuario: ");
-        String nombre = scanner.next();
-        System.out.print("Por favor digite el correo del usuario: ");
-        String correo = scanner.next();
-        System.out.print("Por favor digite la cedula del usuario: ");
-        int cedula = scanner.nextInt();
-        System.out.print("Por favor digite el genero del usuario: ");
-        String genero = scanner.next();
-        System.out.print("Por favor digite la edad del usuario: ");
-        int edad = scanner.nextInt();
-        System.out.print("Por favor digite el celular del usuario: ");
-        String celular = scanner.next();
-        System.out.print("Por favor digite el nombre de usuario de la persona: ");
-        String nomUsu = scanner.next();
-        System.out.print("Por favor digite la contrase" + ALT + 165 + "a del usuario: ");
-        String password = scanner.next();
-        System.out.println();
-        System.out.println("Por favor digite los datos de su mascota: ");
-        System.out.print("Por favor digite el nombre de la mascota: ");
-        String nomMascota = scanner.next();
-        System.out.print("Por favor digite el apodo de la mascota: ");
-        String apodo = scanner.next();
-        System.out.print("Por favor digite el tipo de la mascota (perro/gato): ");
-        System.out.println("En minuscula por favor");
-        String tipo = scanner.next();
-        if (tipo.equalsIgnoreCase("perro ") || tipo.equalsIgnoreCase("gato")) {
-            System.out.print("Por favor digite el tipo la raza de la mascota: ");
-            String raza = scanner.next();
-            System.out.println("Tiene observaciones especiales sobre su mascota " + tipo + " (Si / No)");
-            String resultado = scanner.next();
-            String comentarios;
-            if (resultado.equalsIgnoreCase("Si")) {
-                System.out.println("Por favor digite las observaciones especiales de su mascota " + tipo + ": ");
-                comentarios = scanner.next();
-            } else {
-                comentarios = null;
-            }
-            Mascota mascota = new Mascota();
-            mascota.setNombre(nomMascota);
-            mascota.setNombre(nombre);
-            mascota.setApodo(apodo);
-            mascota.setTipo(tipo);
-            mascota.setRaza(raza);
-            mascota.setComentarios(comentarios);
-            listaMascotas.add(mascota);
-
-            Usuario usuario = new Usuario();
-            usuario.setNombre(nombre);
-            usuario.setCorreo(correo);
-            usuario.setCedula(cedula);
-            usuario.setGenero(genero);
-            usuario.setEdad(edad);
-            usuario.setCelular(celular);
-            usuario.setUsuario(nomUsu);
-            usuario.setPassword(password);
-            usuario.setListaMascotas(listaMascotas);
-
-
+        try {
+            System.out.println(" --------------------------------- LLENAR DATOS DEL USUARIO POR CONSOLA  --------------------------------- ");
             System.out.println();
-            System.out.println(" --------------------------------- DATOS DEL USUARIO  --------------------------------- ");
-            System.out.println(usuario);
-            System.out.println(" --------------------------------- DATOS DE LA MASCOTA  --------------------------------- ");
-            System.out.println(mascota);
-            RegInBD regInBD = new RegInBD();
-            RegPetInBD regPetInBD = new RegPetInBD();
-            if (regInBD.registrarUsuario(usuario)) {
-                System.out.println("El usuario se ha registrado correctamente");
-            } else if (regPetInBD.registrarMascota(mascota)) {
-                System.out.println("La mascota se ha registrado correctamente");
-            } else {
-                System.out.println("El tipo de mascota que ingreso no es valido");
-                System.out.println("Por favor vuelva a intentarlo");
+            System.out.print("Por favor digite el nombre del usuario: ");
+            String nombre = scanner.next();
+            System.out.print("Por favor digite el correo del usuario: ");
+            String correo = scanner.next();
+            System.out.print("Por favor digite la cedula del usuario: ");
+            int cedula = scanner.nextInt();
+            System.out.print("Por favor digite el genero del usuario: ");
+            String genero = scanner.next();
+            System.out.print("Por favor digite la edad del usuario: ");
+            int edad = scanner.nextInt();
+            System.out.print("Por favor digite el celular del usuario: ");
+            String celular = scanner.next();
+            System.out.print("Por favor digite el nombre de usuario de la persona: ");
+            String nomUsu = scanner.next();
+            System.out.print("Por favor digite la clase secreta (password)  del usuario: ");
+            String password = scanner.next();
+            System.out.println();
+            System.out.println("Por favor digite los datos de su mascota: ");
+            System.out.print("Por favor digite el nombre de la mascota: ");
+            String nomMascota = scanner.next();
+            System.out.print("Por favor digite el apodo de la mascota: ");
+            String apodo = scanner.next();
+            System.out.print("Por favor digite el tipo de la mascota (perro/gato), En minuscula por favor: ");
+            String tipo = scanner.next();
+            if (tipo.equals("perro") || tipo.equals("gato")) {
+                System.out.print("Por favor digite el tipo la raza de la mascota: ");
+                String raza = scanner.next();
+                System.out.println("Tiene observaciones especiales sobre su mascota " + nomMascota + " (Si / No)");
+                String resultado = scanner.next();
+                String comentarios;
+                if (resultado.equalsIgnoreCase("Si")) {
+                    System.out.println("Por favor digite las observaciones especiales de su mascota " + tipo + ": ");
+                    comentarios = scanner.next();
+                } else {
+                    comentarios = null;
+                }
+                Mascota mascota = new Mascota();
+                mascota.setNombre(nomMascota);
+                mascota.setNombre(nombre);
+                mascota.setApodo(apodo);
+                mascota.setTipo(tipo);
+                mascota.setRaza(raza);
+                mascota.setComentarios(comentarios);
+                listaMascotas.add(mascota);
+                Usuario usuario = new Usuario();
+                usuario.setNombre(nombre);
+                usuario.setCorreo(correo);
+                usuario.setCedula(cedula);
+                usuario.setGenero(genero);
+                usuario.setEdad(edad);
+                usuario.setCelular(celular);
+                usuario.setUsuario(nomUsu);
+                usuario.setPassword(password);
+                usuario.setListaMascotas(listaMascotas);
                 System.out.println();
-                llenarUsuario();
+                System.out.println(" --------------------------------- DATOS DEL USUARIO  --------------------------------- ");
+                System.out.println(usuario);
+                System.out.println(" --------------------------------- DATOS DE LA MASCOTA  --------------------------------- ");
+                System.out.println(mascota);
+                RegInBD regInBD = new RegInBD();
+                RegPetInBD regPetInBD = new RegPetInBD();
+                if (regInBD.registrarUsuario(usuario)) {
+                    System.out.println("El usuario se ha registrado correctamente");
+                }
+                if(regPetInBD.registrarMascota(mascota)) {
+                    System.out.println("La mascota se ha registrado correctamente");
+                } else {
+                    System.out.println("El tipo de mascota que ingreso no es valido");
+                    System.out.println("Por favor vuelva a intentarlo");
+                    System.out.println();
+                    llenarUsuario();
+                }
             }
+        }catch (Exception e){
+            System.out.println("Por favor digite la edad, cedula y numero de celular en numeros");
         }
+
     }
     // Creación de clases de busqueda para utilizar el patron de diseño Facade
 
@@ -254,7 +255,6 @@ public class MenuAdministrador {
                     String cedula = scanner.next();
                     System.out.print("Por favor digite el id de la mascota que quiere buscar: ");
                     String idMascota = scanner.next();
-
                     // Se crea la clase BuscarUsuarioFacade que fue donde se implemento el patron
                     BuscarUsuarioFacade cliente = new BuscarUsuarioFacade();
                     // Se hace el llamado a la funcion de la clase
