@@ -9,6 +9,6 @@ class CargadorTest {
     @Test
     public void ProbarCargadorPantalla(){
         Cargador cargador = new Cargador();
-        cargador.load("Login");
+        cargador.load("Login.fxml","Login");
     }
 }

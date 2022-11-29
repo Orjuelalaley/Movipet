@@ -79,7 +79,13 @@ public class Reg_mascotasController {
                 mascota.setRaza(Pet_Class.getText());
                 mascota.setEdad(Integer.parseInt(Pet_Age.getText()));
                 mascota.setComentarios(Comments.getText());
-                regPetInBD.registrarMascota(mascota);
+                if (regPetInBD.registrarMascota(mascota)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Registro");
+                    alert.setHeaderText("Registro exitoso");
+                    alert.setContentText("El registro de la mascota se ha realizado con éxito");
+                    alert.showAndWait();
+                }
             }else {
                 alerta.setTitle("Error");
                 alerta.setHeaderText("Error en el campo Edad");

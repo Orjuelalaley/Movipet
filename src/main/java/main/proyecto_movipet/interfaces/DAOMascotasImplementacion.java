@@ -9,8 +9,8 @@ import java.sql.PreparedStatement;
 public class DAOMascotasImplementacion implements DAOMascotas {
 
     @Override
-    public void registrarMascota(Mascota mascota) {
+    public boolean registrarMascota(Mascota mascota) {
         RegPetInBD regPetInBD = new RegPetInBD();
-        regPetInBD.registrarMascota(mascota);
+        return regPetInBD.registrarMascota(mascota);
     }
 }

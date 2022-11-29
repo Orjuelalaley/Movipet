@@ -48,6 +48,7 @@ public class MenuPrincipal {
                 }
                 case 2:
                 {
+                    System.out.println("Modo Administrador");
                     menu.menuAdministrador( );
                     System.out.println();
                     System.out.println();

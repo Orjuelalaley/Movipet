@@ -1,6 +1,5 @@
 package main.proyecto_movipet.Controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import main.proyecto_movipet.interfaces.DAOUsuarioImplementacion;
-import main.proyecto_movipet.model.Entidades.Usuario;
 import main.proyecto_movipet.view.Cargador;
 import main.proyecto_movipet.view.Cerrar_app;
 

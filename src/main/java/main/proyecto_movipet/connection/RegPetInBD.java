@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class RegPetInBD {
     Conexion conexion = Conexion.getInstance();
-    public void registrarMascota(Mascota mascota){
+    public boolean registrarMascota(Mascota mascota){
         try {
             File myObj = new File("src\\main\\java\\main\\proyecto_movipet\\sesion\\user_sesion.txt");
             Scanner myReader = new Scanner(myObj);
@@ -27,16 +27,13 @@ public class RegPetInBD {
             insertar.setString(6, mascota.getComentarios());
             insertar.setInt(7, id);
             if (insertar.executeUpdate() > 0){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registro");
-                alert.setHeaderText("Registro exitoso");
-                alert.setContentText("El registro de la mascota se ha realizado con éxito");
-                alert.showAndWait();
                 conexion.cerrarConexion();
+                return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
 
         }
+        return false;
     }
 }

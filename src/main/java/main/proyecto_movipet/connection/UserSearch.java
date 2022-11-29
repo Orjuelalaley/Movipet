@@ -9,7 +9,7 @@ public class UserSearch{
         Conexion conexion = Conexion.getInstance();
         try {
             Connection conectar = conexion.conectar();
-            PreparedStatement buscar = conectar.prepareStatement("SELECT * FROM movipet_db.clientes WHERE cedula = ?");
+            PreparedStatement buscar = conectar.prepareStatement("SELECT * FROM movipet_db.clientes WHERE Cedula = ?");
             buscar.setInt(1, id);
             buscar.executeQuery();
             ResultSet consulta = buscar.executeQuery();

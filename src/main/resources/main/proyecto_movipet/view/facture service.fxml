@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="59.0" layoutY="47.0" prefHeight="230.0" prefWidth="272.0">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Captura%20de%20pantalla%202022-09-19%20222004.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <FontAwesomeIconView layoutX="947.0" layoutY="43.0" wrappingWidth="13.3333740234375" />
+      <Label layoutX="51.0" layoutY="325.0" prefHeight="99.0" prefWidth="307.0" text="Factura atención a domicilio" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="-12.0" layoutY="317.0" prefHeight="274.0" prefWidth="82.0" />
+      <VBox layoutX="981.0" layoutY="-36.0" prefHeight="243.0" prefWidth="43.0" />
+      <JFXButton layoutX="637.0" layoutY="464.0" prefHeight="43.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" text="Siguiente" textFill="#242323">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="491.0" layoutY="105.0" prefHeight="49.0" prefWidth="143.0" text="Servicio" textAlignment="CENTER" textFill="#1500ff">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="49.0" fitWidth="147.0" layoutX="678.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-22%20152512.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="781.0" layoutY="101.0" prefHeight="49.0" prefWidth="143.0" text="Valor" textAlignment="CENTER" textFill="#1500ff">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="500.0" layoutY="172.0" prefHeight="65.0" prefWidth="105.0" text="Distancia ida: 5Km" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="492.0" layoutY="270.0" prefHeight="61.0" prefWidth="126.0" text="Servicio y diagnostico" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="529.0" layoutY="390.0" prefHeight="27.0" prefWidth="63.0" text="Total:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="165.0" fitWidth="110.0" layoutX="984.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20072436.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="147.0" layoutX="678.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-22%20152512.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="804.0" layoutY="190.0" text="\$10.000">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="807.0" layoutY="287.0" text="\$50.000">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="810.0" layoutY="385.0" text="\$60.000">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="97.0" fitWidth="154.0" layoutX="372.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20073625.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="83.0" fitWidth="94.0" layoutX="929.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20073424.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
