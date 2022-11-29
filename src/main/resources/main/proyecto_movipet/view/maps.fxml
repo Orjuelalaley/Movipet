@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="28.0" layoutY="35.0" prefHeight="230.0" prefWidth="272.0">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/movipet_imagen.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="986.0" layoutY="39.0" size="30" wrappingWidth="13.3333740234375" />
+      <Label layoutX="103.0" layoutY="335.0" prefHeight="86.0" prefWidth="163.0" text="MAPA" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="35.0" />
+         </font>
+      </Label>
+      <VBox layoutX="390.0" layoutY="92.0" prefHeight="334.0" prefWidth="549.0">
+         <children>
+            <ImageView fitHeight="366.0" fitWidth="549.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Mapa1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="540.0" layoutY="23.0" prefHeight="49.0" prefWidth="313.0" text="Servicio solicitado" textAlignment="CENTER" textFill="#1500ff">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="-12.0" layoutY="317.0" prefHeight="274.0" prefWidth="82.0">
+         <children>
+            <ImageView fitHeight="276.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/camino_paticas.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <JFXButton buttonType="RAISED" layoutX="818.0" layoutY="517.0" prefHeight="43.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" text="Siguiente" textFill="#242323">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="243.0" fitWidth="48.0" layoutX="976.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/patica_inferior.jpeg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

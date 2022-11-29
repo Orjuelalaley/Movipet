@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="28.0" layoutY="35.0" prefHeight="230.0" prefWidth="272.0">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/movipet_imagen.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="976.0" layoutY="45.0" size="30" wrappingWidth="17.333293914794922" />
+      <Label layoutX="52.0" layoutY="302.0" prefHeight="206.0" prefWidth="259.0" text="Veterinarios disponibles" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="540.0" layoutY="23.0" prefHeight="49.0" prefWidth="313.0" text="Ficha profesional" textAlignment="CENTER" textFill="#1500ff">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="494.0" layoutY="86.0" prefHeight="131.0" prefWidth="120.0">
+         <children>
+            <ImageView fitHeight="136.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Captura%20de%20pantalla%202022-09-21%20130251.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="700.0" layoutY="95.0" prefHeight="82.0" prefWidth="195.0" text="Nombre: Juana Medina Especialización: Especialista en salud animal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="754.0" layoutY="178.0" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #FFFFFF;" text="Solicitar" textFill="#242323">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <VBox layoutX="494.0" layoutY="260.0" prefHeight="127.0" prefWidth="131.0">
+         <children>
+            <ImageView fitHeight="127.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Captura%20de%20pantalla%202022-09-22%20093033.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="703.0" layoutY="267.0" prefHeight="67.0" prefWidth="186.0" text="Nombre: Ana Garcia Especialización: Especialista en cirugía animal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="758.0" layoutY="346.0" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: #FFFFFF;" text="Solicitar" textFill="#242323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <VBox layoutX="489.0" layoutY="428.0" prefHeight="124.0" prefWidth="126.0">
+         <children>
+            <ImageView fitHeight="130.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Captura%20de%20pantalla%202022-09-22%20154823.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Label layoutX="707.0" layoutY="440.0" prefHeight="67.0" prefWidth="188.0" text="Nombre: Juan Gonzales Especialización: Especialista en salud animal" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="753.0" layoutY="514.0" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #FFFFFF;" text="Solicitar" textFill="#242323">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
