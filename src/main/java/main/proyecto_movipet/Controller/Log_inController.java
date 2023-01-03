@@ -38,10 +38,6 @@ public class Log_inController {
             alerta.setHeaderText("El campo de contraseña está vacío");
             alerta.showAndWait();
         }else if(!UserName.getText().isBlank() && !Password.getText().isBlank()){
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Bienvenido");
-            alerta.setContentText("Bienvenido a MOVIPET");
-            alerta.showAndWait();
             if (usuario_dao.iniciarSesion(UserName.getText(),Password.getText())){
                 Cargador cargador = new Cargador();
                 cargador.load("/main/proyecto_movipet/view/Services.fxml","Menu");

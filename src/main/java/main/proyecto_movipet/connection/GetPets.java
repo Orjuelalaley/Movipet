@@ -21,6 +21,7 @@ public class GetPets {
             PreparedStatement pets = conectar.prepareStatement("SELECT * FROM movipet_db.mascotas WHERE id_duenio = ?");
             pets.setInt(1, usuario.getCedula());
             ResultSet consulta = pets.executeQuery();
+
             while (consulta.next()) {
                 mascota.setNombre(consulta.getString("Nombre"));
                 mascota.setApodo(consulta.getString("Apodo"));

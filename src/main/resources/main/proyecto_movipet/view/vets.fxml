@@ -9,7 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane fx:id="Parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.proyecto_movipet.Controller.VetController">
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> b01389752f7d14f074ddf790945949bdd9f2bf77
    <children>
       <VBox layoutX="28.0" layoutY="35.0" prefHeight="230.0" prefWidth="272.0">
          <children>
@@ -20,7 +24,11 @@
             </ImageView>
          </children>
       </VBox>
+<<<<<<< HEAD
       <FontAwesomeIconView glyphName="CLOSE" layoutX="976.0" layoutY="45.0" onDragDetected="#close_app" size="30" wrappingWidth="17.333293914794922" />
+=======
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="976.0" layoutY="45.0" size="30" wrappingWidth="17.333293914794922" />
+>>>>>>> b01389752f7d14f074ddf790945949bdd9f2bf77
       <Label layoutX="52.0" layoutY="302.0" prefHeight="206.0" prefWidth="259.0" text="Veterinarios disponibles" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Copperplate Gothic Bold" size="35.0" />
