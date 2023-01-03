@@ -1,0 +1,25 @@
+.parent{
+    -fx-background-image: url(../Images/parte_inferior.jpg);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1024 600;
+}
+.vbox{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+}
+.hbox{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+}
+.text-fields{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+    -fx-cursor-color: white;
+    -fx-border-color: #000000;
+    -fx-border-radius: 20px;
+}
+.button{
+    -fx-background-color: #ffffff;
+    -fx-cursor-color: white;
+}

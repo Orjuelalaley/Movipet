@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #f4ece0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="37.0" layoutY="35.0" prefHeight="230.0" prefWidth="272.0">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Captura%20de%20pantalla%202022-09-19%20222004.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <FontAwesomeIconView layoutX="997.0" layoutY="24.0" wrappingWidth="15.99993896484375" />
+      <Label layoutX="41.0" layoutY="296.0" prefHeight="106.0" prefWidth="297.0" text="Gracias por confiar en nosotros!" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="124.0" fitWidth="140.0" layoutX="798.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-22%20152512.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="149.0" layoutX="433.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-22%20152512.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="420.0" layoutY="63.0" prefHeight="204.0" prefWidth="280.0" style="-fx-background-color: #000000;" text="Salir" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="640.0" layoutY="319.0" prefHeight="177.0" prefWidth="289.0" style="-fx-background-color: #FFFFFF;" text="Solicitar otro servicio" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="141.0" fitWidth="160.0" layoutX="117.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20073625.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="169.0" fitWidth="53.0" layoutX="-4.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20072259.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="201.0" fitWidth="154.0" layoutX="974.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Captura%20de%20pantalla%202022-09-20%20072436.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
