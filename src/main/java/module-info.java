@@ -1,7 +1,6 @@
 module main.proyecto_movipet {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
     requires javafx.graphics;
 
     requires java.sql;
